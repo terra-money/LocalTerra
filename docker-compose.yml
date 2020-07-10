@@ -3,10 +3,7 @@ version: "3"
 services:
   terrad:
     image: terracore
-    depends_on:
-      - redis
-    networks:
-      - terra
+    networks: terra
     ports:
       - "26657:26657"
     command: terrad start
@@ -14,17 +11,32 @@ services:
     image: terracore
     depends_on:
       - terrad
-    networks:
-      - terra
+    networks: terra
     ports:
       - "1317:1317"
     command: terracli rest-server --laddr=tcp://0.0.0.0:1317 --node=tcp://terrad:26657 --trust-node=true
-  redis:
-    image: redis:latest
-    networks:
-      - terra
+  fcd-collector:
+    image: terramoney/fcd
+    depends_on:
+      - terrad
+      - lcd
+    networks: terra
+    command: npm run collector
+  fcd-api:
+    image: terramoney/fcd
+    depends_on:
+      - terrad
+      - lcd
+    networks: terra
     ports:
-      - "6379:6379"
+      - 3060:3060
+    command: npm run start
+  # redis:
+  #   image: redis:latest
+  #   networks:
+  #     - terra
+  #   ports:
+  #     - "6379:6379"
 
 networks:
   terra:
