@@ -17,24 +17,38 @@ services:
     ports:
       - "1317:1317"
     command: terracli rest-server --laddr=tcp://0.0.0.0:1317 --node=tcp://terrad:26657 --trust-node=true
-  fcd-collector:
-    image: terramoney/fcd
-    depends_on:
-      - terrad
-      - lcd
+  postgres:
+    image: postgres:11.6
     networks:
       - terra
-    command: npm run collector
-  fcd-api:
-    image: terramoney/fcd
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: dev_fcd
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  fcd-collector:
+    image: terramoney/fcd:0.4.0
     depends_on:
       - terrad
       - lcd
+      - postgres
+    networks:
+      - terra
+    env_file: local.env
+    command: collector
+  fcd-api:
+    image: terramoney/fcd:0.4.0
+    depends_on:
+      - terrad
+      - lcd
+      - postgres
     networks:
       - terra
     ports:
       - 3060:3060
-    command: npm run start
+    env_file: local.env
+    command: start
   # redis:
   #   image: redis:latest
   #   networks:
