@@ -1,7 +1,0 @@
-README.rst
-setup.py
-localterra/__init__.py
-localterra.egg-info/PKG-INFO
-localterra.egg-info/SOURCES.txt
-localterra.egg-info/dependency_links.txt
-localterra.egg-info/top_level.txt
