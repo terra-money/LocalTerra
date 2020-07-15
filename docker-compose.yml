@@ -2,14 +2,14 @@ version: "3"
 
 services:
   terrad:
-    image: terracore
+    image: terramoney/localterra-core
     networks:
       - terra
     ports:
       - "26657:26657"
     command: terrad start
   lcd:
-    image: terracore
+    image: terramoney/localterra-core
     depends_on:
       - terrad
     networks:
