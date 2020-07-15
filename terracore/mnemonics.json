@@ -1,5 +1,11 @@
 {
   "mnemonics": [{
+      "name": "validator",
+      "address": "terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8",
+      "pubkey": "terrapub1addwnpepqflqjs2z2l52fku85zh65cxt8ctm4yn4nk5l9xyv80jq5hvszddpck20sd0",
+      "mnemonic": "satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn"
+    },
+    {
       "name": "test1",
       "address": "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
       "pubkey": "terrapub1addwnpepqgan82zjgdzqvxcjxext5g87pgdtxm2ys64lg5dm0n4az84zys09kyqtavw",
