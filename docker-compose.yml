@@ -3,6 +3,8 @@ version: "3"
 services:
   terrad:
     image: terramoney/localterra-core
+    volumes:
+      - ./config:/root/.terrad/config
     networks:
       - terra
     ports:
@@ -14,6 +16,8 @@ services:
     image: terramoney/localterra-core
     depends_on:
       - terrad
+    volumes:
+      - ./config:/root/.terrad/config
     networks:
       - terra
     ports:
@@ -23,20 +27,22 @@ services:
       - ./volume.terrad:/root/.terrad
   postgres:
     image: postgres:11.6
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - terra
     environment:
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
       POSTGRES_DB: dev_fcd
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
   fcd-collector:
     image: terramoney/fcd:0.4.0
     depends_on:
       - terrad
       - lcd
       - postgres
+    volumes:
+      - ./logs:/app/logs
     networks:
       - terra
     env_file: local.env
@@ -47,6 +53,8 @@ services:
       - terrad
       - lcd
       - postgres
+    volumes:
+      - ./logs:/app/logs
     networks:
       - terra
     ports:

@@ -53,4 +53,6 @@ dependency-graph.png
 *.out
 *.synctex.gz
 
-volume.terrad/data
+logs/
+config/addrbook.json
+config/write-file-atomic*
