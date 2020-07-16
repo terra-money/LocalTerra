@@ -11,7 +11,9 @@ Instant, zero-config Terra blockchain and ecosystem.
 
 ## What is LocalTerra?
 
-LocalTerra is a complete Terra testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file, designed to make it easy for smart contract developers to test out their contracts on a sandboxed environment before moving to a live testnet or mainnet. LocalTerra comes pre-configured with opinionated, sensible defaults for a standard testing environment. If other projects mention testing on LocalTerra, they are referring to the settings defined in this repo.
+LocalTerra is a complete Terra testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file, designed to make it easy for smart contract developers to test out their contracts on a sandboxed environment before moving to a live testnet or mainnet.
+
+LocalTerra comes pre-configured with opinionated, sensible defaults for a standard testing environment. If other projects mention testing on LocalTerra, they are referring to the settings defined in this repo.
 
 The advantages of LocalTerra over a public testnet are that:
 
@@ -43,6 +45,7 @@ You should now have an environment with the following:
 - [terrad](http://github.com/terra-project/core) RPC node running on `tcp://localhost:26657`
 - LCD running on http://localhost:1317
 - [FCD](http://www.github.com/terra-project/fcd) running on http://localhost:3060
+- an oracle feeder feeding live prices from mainnet, trailing by 1 vote period
 
 If you need to turn off LocalTerra:
 
@@ -115,11 +118,11 @@ Since the majority of LocalTerra is implemented through a `docker-compose.yml` f
 
 ### Modifying Node Configuration
 
-You can modify the node configuration of your validator in `terracore/config/config.toml` and `terracore/config/app.toml`.
+You can modify the node configuration of your validator in `config/config.toml` and `config/app.toml`.
 
 ### Modifying Genesis
 
-If you need to change the `genesis.json` file, you can alter it in `terracore/config/genesis.json`.
+If you need to change the `genesis.json` file, you can alter it in `config/genesis.json`. This will get loaded when you reset your LocalTerra network.
 
 ## Accounts
 
