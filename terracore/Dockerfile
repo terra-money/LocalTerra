@@ -17,7 +17,7 @@ COPY terrad ./bin/
 COPY terracli ./bin/
 COPY libgo_cosmwasm.so /lib/
 
-RUN terrad unsafe-reset-all
+RUN terrad init localterra --chain-id localterra
 # Install tools & install core
 # Intialize RUN make tools
 #RUN cat $HOME/.terrad/config/config.toml
