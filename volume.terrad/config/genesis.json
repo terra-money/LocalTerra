@@ -226,7 +226,23 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
             ],
             "public_key": "",
@@ -241,7 +257,23 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
             ],
             "public_key": "",
@@ -256,7 +288,23 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
             ],
             "public_key": "",
@@ -271,7 +319,23 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
             ],
             "public_key": "",
@@ -286,8 +350,25 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
+
             ],
             "public_key": "",
             "account_number": 0,
@@ -301,8 +382,25 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
+
             ],
             "public_key": "",
             "account_number": 0,
@@ -316,8 +414,25 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
+
             ],
             "public_key": "",
             "account_number": 0,
@@ -331,8 +446,25 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
+
             ],
             "public_key": "",
             "account_number": 0,
@@ -346,8 +478,25 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
+
             ],
             "public_key": "",
             "account_number": 0,
@@ -361,8 +510,25 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
+
             ],
             "public_key": "",
             "account_number": 0,
@@ -376,8 +542,25 @@
             "coins": [
               {
                 "denom": "uluna",
-                "amount": "1000000000"
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "uusd",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "usdr",
+                "amount": "100000000000"
+              },
+              {
+                "denom": "ukrw",
+                "amount": "100000000000"
               }
+
             ],
             "public_key": "",
             "account_number": 0,

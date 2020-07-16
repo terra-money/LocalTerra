@@ -8,6 +8,8 @@ services:
     ports:
       - "26657:26657"
     command: terrad start
+    volumes:
+      - ./volume.terrad:/root/.terrad
   lcd:
     image: terramoney/localterra-core
     depends_on:
@@ -17,6 +19,8 @@ services:
     ports:
       - "1317:1317"
     command: terracli rest-server --laddr=tcp://0.0.0.0:1317 --node=tcp://terrad:26657 --trust-node=true
+    volumes:
+      - ./volume.terrad:/root/.terrad
   postgres:
     image: postgres:11.6
     networks:
