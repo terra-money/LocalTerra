@@ -72,7 +72,7 @@ Make sure you have the same version of `terracli` installed as LocalTerra. Then,
 $ terracli status
 ```
 
-This automatically works because `terracli` connects to `localhost:2657` by default. More explicitly:
+This automatically works because `terracli` connects to `localhost:26657` by default. More explicitly:
 
 ```sh
 $ terracli status --node=tcp://localhost:26657
