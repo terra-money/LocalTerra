@@ -54,4 +54,5 @@ dependency-graph.png
 *.synctex.gz
 
 logs/
+config/addrbook.json
 config/write-file-atomic*
