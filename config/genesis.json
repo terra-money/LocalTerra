@@ -239,10 +239,6 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
             ],
             "public_key": "",
@@ -269,10 +265,6 @@
               },
               {
                 "denom": "usdr",
-                "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
                 "amount": "100000000000"
               }
             ],
@@ -301,10 +293,6 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
             ],
             "public_key": "",
@@ -331,10 +319,6 @@
               },
               {
                 "denom": "usdr",
-                "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
                 "amount": "100000000000"
               }
             ],
@@ -363,12 +347,7 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
-
             ],
             "public_key": "",
             "account_number": 0,
@@ -395,12 +374,7 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
-
             ],
             "public_key": "",
             "account_number": 0,
@@ -427,12 +401,7 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
-
             ],
             "public_key": "",
             "account_number": 0,
@@ -459,12 +428,7 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
-
             ],
             "public_key": "",
             "account_number": 0,
@@ -491,12 +455,7 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
-
             ],
             "public_key": "",
             "account_number": 0,
@@ -523,12 +482,7 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
-
             ],
             "public_key": "",
             "account_number": 0,
@@ -555,12 +509,7 @@
               {
                 "denom": "usdr",
                 "amount": "100000000000"
-              },
-              {
-                "denom": "ukrw",
-                "amount": "100000000000"
               }
-
             ],
             "public_key": "",
             "account_number": 0,

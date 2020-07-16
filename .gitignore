@@ -53,6 +53,9 @@ dependency-graph.png
 *.out
 *.synctex.gz
 
+# Node.js
+node_modules/
+
 logs/
 config/addrbook.json
 config/write-file-atomic*
