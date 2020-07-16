@@ -312,7 +312,7 @@ index_keys = ""
 # Note this may be not desirable (see the comment above). IndexKeys has a
 # precedence over IndexAllKeys (i.e. when given both, IndexKeys will be
 # indexed).
-index_all_keys = false
+index_all_keys = true
 
 ##### instrumentation configuration options #####
 [instrumentation]
