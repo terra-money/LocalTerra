@@ -4,7 +4,7 @@ services:
   terrad:
     image: terramoney/localterra-core
     volumes:
-      - ./volume.terrad:/root/.terrad
+      - ./config:/root/.terrad/config
     networks:
       - terra
     ports:
@@ -15,7 +15,7 @@ services:
     depends_on:
       - terrad
     volumes:
-      - ./volume.terrad:/root/.terrad
+      - ./config:/root/.terrad/config
     networks:
       - terra
     ports:
