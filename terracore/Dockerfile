@@ -16,8 +16,6 @@ ENV LD_LIBRARY_PATH /lib64
 COPY terrad ./bin/
 COPY terracli ./bin/
 COPY libgo_cosmwasm.so /lib/
-COPY config .terrad/config/
-COPY data .terrad/data/
 
 # Install tools & install core
 # Intialize RUN make tools
