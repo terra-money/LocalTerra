@@ -304,7 +304,7 @@ indexer = "kv"
 # It's recommended to index only a subset of keys due to possible memory
 # bloat. This is, of course, depends on the indexer's DB and the volume of
 # transactions.
-index_keys = ""
+index_keys = "tx.hash,tx.height,message.action,message.sender,submit_proposal.proposal_id,proposal_vote.proposal_id,proposal_deposit.proposal_id"
 
 # When set to true, tells indexer to index all compositeKeys (predefined keys:
 # "tx.hash", "tx.height" and all keys from DeliverTx responses).
@@ -312,7 +312,7 @@ index_keys = ""
 # Note this may be not desirable (see the comment above). IndexKeys has a
 # precedence over IndexAllKeys (i.e. when given both, IndexKeys will be
 # indexed).
-index_all_keys = true
+index_all_keys = false
 
 ##### instrumentation configuration options #####
 [instrumentation]
