@@ -12,6 +12,39 @@ const {
   MNEMONIC = "satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn",
 } = process.env;
 
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function waitForFirstBlock(client: LCDClient) {
+  let shouldTerminate = false
+
+  console.info('waiting for first block');
+
+  while (!shouldTerminate) {
+    shouldTerminate = await client.tendermint
+      .block()
+      .then(async (blockInfo) => {
+        await delay(5000);
+      
+        if (blockInfo?.block) {
+          return +blockInfo.block?.header.height > 0;
+        }
+        
+        return false;
+      })
+      .catch(async (err) => {
+        console.error(err);
+        await delay(1000);
+        return false;
+      });
+
+    if (shouldTerminate) {
+      break;
+    }
+  }
+}
+
 async function main() {
   const mainnetClient = new LCDClient({
     URL: MAINNET_LCD_URL,
@@ -32,15 +65,17 @@ async function main() {
   let lastSuccessVotePeriod: number;
   let lastVotePeriodVoteMsgs: MsgExchangeRateVote[] = [];
 
+  await waitForFirstBlock(testnetClient);
+
   while (true) {
     const [rates, oracleParams, latestBlock] = await Promise.all([
       mainnetClient.oracle.exchangeRates(),
       testnetClient.oracle.parameters(),
       testnetClient.tendermint.block(),
-    ]).catch(err => []);
+    ]).catch((err) => []);
 
     if (!rates) {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      await delay(5000);
       continue;
     }
 
@@ -53,7 +88,7 @@ async function main() {
       (lastSuccessVotePeriod && lastSuccessVotePeriod === currentVotePeriod) ||
       indexInVotePeriod >= oracleVotePeriod - 1
     ) {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await delay(1000);
       continue;
     }
 
@@ -88,7 +123,7 @@ async function main() {
         console.error(err.message);
       });
 
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await delay(5000);
   }
 }
 
