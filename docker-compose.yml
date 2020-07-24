@@ -42,7 +42,7 @@ services:
       POSTGRES_PASSWORD: dev
       POSTGRES_DB: dev_fcd
   fcd-collector:
-    image: terramoney/fcd:0.4.5
+    image: terramoney/fcd:0.4.6
     depends_on:
       - terrad
       - lcd
@@ -54,7 +54,7 @@ services:
     env_file: local.env
     command: collector
   fcd-api:
-    image: terramoney/fcd:0.4.5
+    image: terramoney/fcd:0.4.6
     depends_on:
       - terrad
       - lcd
