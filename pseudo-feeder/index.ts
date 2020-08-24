@@ -23,7 +23,7 @@ async function waitForFirstBlock(client: LCDClient) {
 
   while (!shouldTerminate) {
     shouldTerminate = await client.tendermint
-      .block()
+      .blockInfo()
       .then(async (blockInfo) => {
         await delay(5000);
       
@@ -71,7 +71,7 @@ async function main() {
     const [rates, oracleParams, latestBlock] = await Promise.all([
       mainnetClient.oracle.exchangeRates(),
       testnetClient.oracle.parameters(),
-      testnetClient.tendermint.block(),
+      testnetClient.tendermint.blockInfo(),
     ]).catch((err) => []);
 
     if (!rates) {
