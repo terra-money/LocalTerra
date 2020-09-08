@@ -54,6 +54,8 @@ async function main() {
   const testnetClient = new LCDClient({
     URL: TESTNET_LCD_URL,
     chainID: TESTNET_CHAIN_ID,
+    gasPrices: "0.15uluna",
+    gasAdjustment: 1.4
   });
 
   const mk = new MnemonicKey({
