@@ -450,7 +450,7 @@
       "params": {
         "unbonding_time": "1814400000000000",
         "max_validators": 100,
-        "max_entries": 7,
+        "max_entries": 100,
         "historical_entries": 0,
         "bond_denom": "uluna"
       },
@@ -608,9 +608,9 @@
     "market": {
       "terra_pool_delta": "0.000000000000000000",
       "params": {
-        "base_pool": "250000000000.000000000000000000",
+        "base_pool": "625000000000",
         "pool_recovery_period": "14400",
-        "min_spread": "0.020000000000000000"
+        "min_spread": "0.005"
       }
     },
     "evidence": {
