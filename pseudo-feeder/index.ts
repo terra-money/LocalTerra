@@ -23,7 +23,7 @@ async function waitForFirstBlock(client: LCDClient) {
 
   while (!shouldTerminate) {
     shouldTerminate = await client.tendermint
-      .block()
+      .blockInfo()
       .then(async (blockInfo) => {
         await delay(5000);
       
@@ -54,6 +54,8 @@ async function main() {
   const testnetClient = new LCDClient({
     URL: TESTNET_LCD_URL,
     chainID: TESTNET_CHAIN_ID,
+    gasPrices: "0.15uluna",
+    gasAdjustment: 1.4
   });
 
   const mk = new MnemonicKey({
@@ -71,7 +73,7 @@ async function main() {
     const [rates, oracleParams, latestBlock] = await Promise.all([
       mainnetClient.oracle.exchangeRates(),
       testnetClient.oracle.parameters(),
-      testnetClient.tendermint.block(),
+      testnetClient.tendermint.blockInfo(),
     ]).catch((err) => []);
 
     if (!rates) {

@@ -2,7 +2,7 @@ version: "3"
 
 services:
   terrad:
-    image: terramoney/localterra-core:0.4.1
+    image: terramoney/localterra-core:0.4.3
     volumes:
       - ./config:/root/.terrad/config
     networks:
@@ -11,7 +11,7 @@ services:
       - "26657:26657"
     command: terrad start
   lcd:
-    image: terramoney/localterra-core:0.4.1
+    image: terramoney/localterra-core:0.4.3
     depends_on:
       - terrad
     volumes:
@@ -22,7 +22,7 @@ services:
       - "1317:1317"
     command: terracli rest-server --laddr=tcp://0.0.0.0:1317 --node=tcp://terrad:26657 --trust-node=true
   oracle:
-    image: terramoney/pseudo-feeder:0.4.0
+    image: terramoney/pseudo-feeder:0.4.2
     depends_on:
       - terrad
       - lcd
@@ -42,7 +42,7 @@ services:
       POSTGRES_PASSWORD: dev
       POSTGRES_DB: dev_fcd
   fcd-collector:
-    image: terramoney/fcd:0.4.8
+    image: terramoney/fcd:0.4.12
     depends_on:
       - terrad
       - lcd
@@ -54,7 +54,7 @@ services:
     env_file: local.env
     command: collector
   fcd-api:
-    image: terramoney/fcd:0.4.8
+    image: terramoney/fcd:0.4.12
     depends_on:
       - terrad
       - lcd
