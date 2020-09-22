@@ -2,7 +2,7 @@ version: "3"
 
 services:
   terrad:
-    image: terramoney/localterra-core:0.4.4
+    image: terramoney/localterra-core:0.4.5
     volumes:
       - ./config:/root/.terrad/config
     networks:
@@ -11,7 +11,7 @@ services:
       - "26657:26657"
     command: terrad start
   lcd:
-    image: terramoney/localterra-core:0.4.4
+    image: terramoney/localterra-core:0.4.5
     depends_on:
       - terrad
     volumes:
