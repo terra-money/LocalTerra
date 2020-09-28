@@ -1,7 +1,7 @@
 import {
   LCDClient,
   MnemonicKey,
-  MsgExchangeRateVote,
+  MsgAggregateExchangeRateVote,
 } from "@terra-money/terra.js";
 
 const {
@@ -17,20 +17,20 @@ function delay(ms: number): Promise<void> {
 }
 
 async function waitForFirstBlock(client: LCDClient) {
-  let shouldTerminate = false
+  let shouldTerminate = false;
 
-  console.info('waiting for first block');
+  console.info("waiting for first block");
 
   while (!shouldTerminate) {
     shouldTerminate = await client.tendermint
       .blockInfo()
       .then(async (blockInfo) => {
         await delay(5000);
-      
+
         if (blockInfo?.block) {
           return +blockInfo.block?.header.height > 0;
         }
-        
+
         return false;
       })
       .catch(async (err) => {
@@ -55,7 +55,7 @@ async function main() {
     URL: TESTNET_LCD_URL,
     chainID: TESTNET_CHAIN_ID,
     gasPrices: "0.15uluna",
-    gasAdjustment: 1.4
+    gasAdjustment: 1.4,
   });
 
   const mk = new MnemonicKey({
@@ -65,7 +65,7 @@ async function main() {
   const wallet = testnetClient.wallet(mk);
 
   let lastSuccessVotePeriod: number;
-  let lastVotePeriodVoteMsgs: MsgExchangeRateVote[] = [];
+  let lastSuccessVoteMsg: MsgAggregateExchangeRateVote;
 
   await waitForFirstBlock(testnetClient);
 
@@ -94,21 +94,19 @@ async function main() {
       continue;
     }
 
-    const voteMsgs: MsgExchangeRateVote[] = rates
+    const coins = rates
       .toArray()
-      .map(
-        (r) =>
-          new MsgExchangeRateVote(
-            r.amount,
-            r.denom,
-            "salt",
-            mk.accAddress,
-            mk.valAddress
-          )
-      );
+      .map((r) => `${r.amount}${r.denom}`)
+      .join(",");
 
-    const prevoteMsgs = voteMsgs.map((vm) => vm.getPrevote());
-    const msgs = [...lastVotePeriodVoteMsgs, ...prevoteMsgs];
+    const voteMsg = new MsgAggregateExchangeRateVote(
+      coins,
+      "salt",
+      mk.accAddress,
+      mk.valAddress
+    );
+
+    const msgs = [lastSuccessVoteMsg, voteMsg.getPrevote()].filter(Boolean);
     const tx = await wallet.createAndSignTx({ msgs });
 
     await testnetClient.tx
@@ -119,7 +117,7 @@ async function main() {
         );
 
         lastSuccessVotePeriod = currentVotePeriod;
-        lastVotePeriodVoteMsgs = voteMsgs;
+        lastSuccessVoteMsg = voteMsg;
       })
       .catch((err) => {
         console.error(err.message);
