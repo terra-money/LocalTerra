@@ -1,3 +1,4 @@
+import { randomBytes } from 'crypto';
 import {
   LCDClient,
   MnemonicKey,
@@ -101,7 +102,7 @@ async function main() {
 
     const voteMsg = new MsgAggregateExchangeRateVote(
       coins,
-      "salt",
+      randomBytes(2).toString('hex'),
       mk.accAddress,
       mk.valAddress
     );
