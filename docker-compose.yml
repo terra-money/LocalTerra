@@ -20,7 +20,7 @@ services:
       - terra
     ports:
       - "1317:1317"
-    command: terracli rest-server --laddr=tcp://0.0.0.0:1317 --node=tcp://terrad:26657 --trust-node=true
+    command: terracli rest-server --laddr=tcp://0.0.0.0:1317 --node=tcp://terrad:26657 --trust-node=true --unsafe-cors
   oracle:
     image: terramoney/pseudo-feeder:0.4.5
     depends_on:
@@ -42,7 +42,7 @@ services:
       POSTGRES_PASSWORD: dev
       POSTGRES_DB: dev_fcd
   fcd-collector:
-    image: terramoney/fcd:0.4.18
+    image: terramoney/fcd:0.4.19
     depends_on:
       - terrad
       - lcd
@@ -54,7 +54,7 @@ services:
     env_file: local.env
     command: collector
   fcd-api:
-    image: terramoney/fcd:0.4.18
+    image: terramoney/fcd:0.4.19
     depends_on:
       - terrad
       - lcd
