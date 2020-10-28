@@ -1,5 +1,8 @@
 import { randomBytes } from 'crypto';
 import {
+  Coins,
+  OracleParams,
+  BlockInfo,
   LCDClient,
   MnemonicKey,
   MsgAggregateExchangeRateVote,
@@ -75,9 +78,9 @@ async function main() {
       mainnetClient.oracle.exchangeRates(),
       testnetClient.oracle.parameters(),
       testnetClient.tendermint.blockInfo(),
-    ]).catch((err) => []);
+    ]).catch(() => []) as [Coins, OracleParams, BlockInfo]
 
-    if (!rates) {
+    if (!rates || !oracleParams || !latestBlock) {
       await delay(5000);
       continue;
     }
