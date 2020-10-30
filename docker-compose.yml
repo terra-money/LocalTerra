@@ -32,7 +32,7 @@ services:
       TESTNET_LCD_URL: http://lcd:1317
     command: start
   postgres:
-    image: postgres:11.6
+    image: postgres:11
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
@@ -40,7 +40,6 @@ services:
     environment:
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
-      POSTGRES_DB: dev_fcd
   fcd-collector:
     image: terramoney/fcd:0.4.20
     depends_on:
@@ -67,6 +66,21 @@ services:
       - 3060:3060
     env_file: local.env
     command: start
+  mantle:
+    image: terramoney/mantle:0.2.6
+    depends_on:
+      - terrad
+      - lcd
+    volumes:
+      - ./config/genesis.json:/app/genesis.json
+    networks:
+      - terra
+    ports:
+      - 1337:1337
+    environment:
+      DB_DIR: ./db
+      GENESIS_PATH: ./genesis.json
+      ENDPOINT: terrad:26657
   # redis:
   #   image: redis:latest
   #   networks:
@@ -76,3 +90,4 @@ services:
 
 networks:
   terra:
+    driver: bridge
