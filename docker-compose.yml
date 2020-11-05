@@ -41,7 +41,7 @@ services:
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
   fcd-collector:
-    image: terramoney/fcd:0.4.20
+    image: terramoney/fcd:0.4.22
     depends_on:
       - terrad
       - lcd
@@ -50,10 +50,10 @@ services:
       - ./logs:/app/logs
     networks:
       - terra
-    env_file: local.env
+    env_file: fcd.env
     command: collector
   fcd-api:
-    image: terramoney/fcd:0.4.20
+    image: terramoney/fcd:0.4.22
     depends_on:
       - terrad
       - lcd
@@ -64,7 +64,7 @@ services:
       - terra
     ports:
       - 3060:3060
-    env_file: local.env
+    env_file: fcd.env
     command: start
   mantle:
     image: terramoney/mantle:0.2.6
