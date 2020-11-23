@@ -2,7 +2,7 @@ version: "3"
 
 services:
   terrad:
-    image: terramoney/localterra-core:0.4.6
+    image: terramoney/localterra-core:0.4.7
     volumes:
       - ./config:/root/.terrad/config
     networks:
@@ -11,7 +11,7 @@ services:
       - "26657:26657"
     command: terrad start
   lcd:
-    image: terramoney/localterra-core:0.4.6
+    image: terramoney/localterra-core:0.4.7
     depends_on:
       - terrad
     volumes:
@@ -41,7 +41,7 @@ services:
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
   fcd-collector:
-    image: terramoney/fcd:0.5.0
+    image: terramoney/fcd:0.5.1
     depends_on:
       - terrad
       - lcd
@@ -53,7 +53,7 @@ services:
     env_file: fcd.env
     command: collector
   fcd-api:
-    image: terramoney/fcd:0.5.0
+    image: terramoney/fcd:0.5.1
     depends_on:
       - terrad
       - lcd

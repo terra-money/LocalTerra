@@ -8,11 +8,9 @@ FROM ubuntu:18.04
 WORKDIR /root
 
 ENV PATH /root/bin:$PATH
-ENV LD_LIBRARY_PATH /lib64
 
 COPY terrad ./bin/
 COPY terracli ./bin/
-COPY libgo_cosmwasm.so /lib/
 
 RUN terrad init localterra --chain-id localterra
 
