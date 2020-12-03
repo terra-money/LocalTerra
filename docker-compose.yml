@@ -22,7 +22,7 @@ services:
       - "1317:1317"
     command: terracli rest-server --laddr=tcp://0.0.0.0:1317 --node=tcp://terrad:26657 --trust-node=true --unsafe-cors
   oracle:
-    image: terramoney/pseudo-feeder:0.4.6
+    image: terramoney/pseudo-feeder:0.4.7
     depends_on:
       - terrad
       - lcd
@@ -66,21 +66,6 @@ services:
       - 3060:3060
     env_file: fcd.env
     command: start
-  mantle:
-    image: terramoney/mantle:0.2.10
-    depends_on:
-      - terrad
-      - lcd
-    volumes:
-      - ./config/genesis.json:/app/genesis.json
-    networks:
-      - terra
-    ports:
-      - 1337:1337
-    environment:
-      DB_DIR: ./db
-      GENESIS_PATH: ./genesis.json
-      ENDPOINT: terrad:26657
   # redis:
   #   image: redis:latest
   #   networks:
