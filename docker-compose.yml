@@ -66,6 +66,21 @@ services:
       - 3060:3060
     env_file: fcd.env
     command: start
+  mantle:
+    image: terramoney/mantle:0.3.0-rc.2
+    depends_on:
+      - terrad
+      - lcd
+    volumes:
+      - ./config/genesis.json:/app/genesis.json
+    networks:
+      - terra
+    ports:
+      - 1337:1337
+    environment:
+      DB_DIR: ./db
+      GENESIS_PATH: ./genesis.json
+      ENDPOINT: terrad:26657
   # redis:
   #   image: redis:latest
   #   networks:
