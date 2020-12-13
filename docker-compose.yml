@@ -67,7 +67,7 @@ services:
     env_file: fcd.env
     command: start
   mantle:
-    image: terramoney/mantle:0.3.0-rc.2
+    image: terramoney/mantle:0.3.1
     depends_on:
       - terrad
       - lcd
