@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.9-nodejs15-slim
+FROM node:lts
 
 WORKDIR /app
 

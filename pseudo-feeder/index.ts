@@ -10,7 +10,7 @@ import {
 
 const {
   MAINNET_LCD_URL = "https://lcd.terra.dev",
-  MAINNET_CHAIN_ID = "columbus-3",
+  MAINNET_CHAIN_ID = "columbus-4",
   TESTNET_LCD_URL = "http://localhost:1317",
   TESTNET_CHAIN_ID = "localterra",
   MNEMONIC = "satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn",
@@ -49,7 +49,6 @@ async function waitForFirstBlock(client: LCDClient) {
   }
 }
 
-// config
 const mainnetClient = new LCDClient({
   URL: MAINNET_LCD_URL,
   chainID: MAINNET_CHAIN_ID,
@@ -58,7 +57,7 @@ const mainnetClient = new LCDClient({
 const testnetClient = new LCDClient({
   URL: TESTNET_LCD_URL,
   chainID: TESTNET_CHAIN_ID,
-  gasPrices: "0.15uluna",
+  gasPrices: "0.00506uluna",
   gasAdjustment: 1.4,
 });
 
@@ -68,10 +67,11 @@ const mk = new MnemonicKey({
 
 const wallet = testnetClient.wallet(mk);
 
-async function main() {
+async function loop() {
   let lastSuccessVotePeriod: number;
   let lastSuccessVoteMsg: MsgAggregateExchangeRateVote;
 
+  while (true) {
     const [rates, oracleParams, latestBlock] = await Promise.all([
       mainnetClient.oracle.exchangeRates(),
       testnetClient.oracle.parameters(),
@@ -79,9 +79,8 @@ async function main() {
     ]).catch(() => []) as [Coins, OracleParams, BlockInfo]
 
     if (!rates || !oracleParams || !latestBlock) {
-      return Promise.resolve()
-        .then(() => delay(5000))
-        .then(main)
+      await delay(5000);
+      continue;
     }
 
     const oracleVotePeriod = oracleParams.vote_period;
@@ -93,9 +92,8 @@ async function main() {
       (lastSuccessVotePeriod && lastSuccessVotePeriod === currentVotePeriod) ||
       indexInVotePeriod >= oracleVotePeriod - 1
     ) {
-      return Promise.resolve()
-        .then(() => delay(1000))
-        .then(main)
+      await delay(1000);
+      continue;
     }
 
     const coins = rates
@@ -111,11 +109,11 @@ async function main() {
     );
 
     const msgs = [lastSuccessVoteMsg, voteMsg.getPrevote()].filter(Boolean);
-
-    return Promise.resolve()
-      .then(() => wallet.createAndSignTx({ msgs }))
-      .then(tx => testnetClient.tx.broadcast(tx))
-      .then(result => {
+    const tx = await wallet.createAndSignTx({ msgs });
+ 
+    await testnetClient.tx
+      .broadcast(tx)
+      .then((result) => {
         console.log(
           `vote_period: ${currentVotePeriod}, txhash: ${result.txhash}`
         );
@@ -123,17 +121,18 @@ async function main() {
         lastSuccessVotePeriod = currentVotePeriod;
         lastSuccessVoteMsg = voteMsg;
       })
-      .catch(err => console.error(err.message))
-      .then(() => delay(5000))
-      .then(main)
+      .catch((err) => {
+        console.error(err.message);
+      });
+
+    await delay(5000);
+  }
 }
 
+(async () => {
+  await waitForFirstBlock(testnetClient);
 
-const app = () => Promise.resolve()
-  .then(main)
-  .then(console.error) // never care about the error
-  .then(app)
-
-Promise.resolve()
-  .then(() => waitForFirstBlock(testnetClient))
-  .then(app)
+  while (true) {
+    await loop().catch(console.error);
+  }
+})();
