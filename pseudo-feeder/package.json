@@ -1,6 +1,6 @@
 {
   "name": "pseudo-feeder",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Oracle feeder that votes price as same as current exchange rate on mainnet",
   "main": "index.js",
   "scripts": {

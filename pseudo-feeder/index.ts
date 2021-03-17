@@ -57,7 +57,7 @@ const mainnetClient = new LCDClient({
 const testnetClient = new LCDClient({
   URL: TESTNET_LCD_URL,
   chainID: TESTNET_CHAIN_ID,
-  gasPrices: "0.00506uluna",
+  gasPrices: "0.01133uluna",
   gasAdjustment: 1.4,
 });
 
