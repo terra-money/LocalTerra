@@ -1,6 +1,6 @@
 {
   "name": "pseudo-feeder",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Oracle feeder that votes price as same as current exchange rate on mainnet",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@terra-money/terra.js": "^1",
+    "@terra-money/terra.js": "^1.6.0",
     "@types/node": "^14.14.22",
     "bluebird": "^3.7.2",
     "node-fetch": "^2.6.1",
