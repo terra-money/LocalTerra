@@ -26,6 +26,7 @@ The advantages of LocalTerra over a public testnet are that:
 
 - [Docker](https://www.docker.com/) installed and configured on your system
 - [`docker-compose`](https://github.com/docker/compose)
+- Supported known architecture: x86_64
 
 ## Usage
 
