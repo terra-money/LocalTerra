@@ -121,6 +121,29 @@ Since the majority of LocalTerra is implemented through a `docker-compose.yml` f
 
 You can modify the node configuration of your validator in `config/config.toml` and `config/app.toml`.
 
+#### PRO TIP: Speed Up Block Time
+
+LocalTerra is often used alongside a script written with Terra.js or Terra Python SDK as a convenient way to do integration tests. You can greatly improve the experience by speeding up the block time. Go ahead and edit `config/config.toml`'s `[consensus]` parameters. Here, we have chosen to replace all timeouts to `200ms`, but you can experiment with other values.
+
+```diff
+##### consensus configuration options #####
+[consensus]
+
+wal_file = "data/cs.wal/wal"
+- timeout_propose = "3s"
++ timeout_propose = "200ms"
+- timeout_propose_delta = "500ms"
++ timeout_propose_delta = "200ms"
+- timeout_prevote = "1s"
++ timeout_prevote = "200ms"
+- timeout_prevote_delta = "500ms"
++ timeout_prevote_delta = "200ms"
+- timeout_precommit_delta = "500ms"
++ timeout_precommit_delta = "200ms"
+- timeout_commit = "5s"
++ timeout_commit = "200ms"
+```
+
 ### Modifying Genesis
 
 If you need to change the `genesis.json` file, you can alter it in `config/genesis.json`. This will get loaded when you reset your LocalTerra network.
