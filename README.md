@@ -88,13 +88,13 @@ You should now be able to issue normal commands with `terracli` against your Loc
 $ terracli query account terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8
 ```
 
-### Jigu
+### Terra SDK for Python
 
 You can connect to the chain through LocalTerra's LCD server.
 
 ```python
-from jigu import Terra
-terra = Terra("localterra", "http://localhost:1317")
+from terra_sdk.client.lcd import LCDClient
+terra = LCDClient("localterra", "http://localhost:1317")
 ```
 
 ### Terra.js
@@ -131,16 +131,16 @@ LocalTerra is often used alongside a script written with Terra.js or Terra Pytho
 
 wal_file = "data/cs.wal/wal"
 - timeout_propose = "3s"
-+ timeout_propose = "200ms"
 - timeout_propose_delta = "500ms"
-+ timeout_propose_delta = "200ms"
 - timeout_prevote = "1s"
-+ timeout_prevote = "200ms"
 - timeout_prevote_delta = "500ms"
-+ timeout_prevote_delta = "200ms"
 - timeout_precommit_delta = "500ms"
-+ timeout_precommit_delta = "200ms"
 - timeout_commit = "5s"
++ timeout_propose = "200ms"
++ timeout_propose_delta = "200ms"
++ timeout_prevote = "200ms"
++ timeout_prevote_delta = "200ms"
++ timeout_precommit_delta = "200ms"
 + timeout_commit = "200ms"
 ```
 
