@@ -110,7 +110,7 @@ async function loop() {
 
     const msgs = [lastSuccessVoteMsg, voteMsg.getPrevote()].filter(Boolean);
     const tx = await wallet.createAndSignTx({ msgs });
- 
+
     await testnetClient.tx
       .broadcast(tx)
       .then((result) => {

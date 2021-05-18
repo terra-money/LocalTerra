@@ -1,8 +1,7 @@
 {
   "name": "pseudo-feeder",
-  "version": "0.5.2",
+  "version": "0.5.3-bombay",
   "description": "Oracle feeder that votes price as same as current exchange rate on mainnet",
-  "main": "index.js",
   "scripts": {
     "start": "ts-node .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +9,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@terra-money/terra.js": "^1.6.0",
-    "@types/node": "^14.14.22",
+    "@terra-money/terra.js": "^2",
+    "@types/node": "^15.3.0",
     "bluebird": "^3.7.2",
     "node-fetch": "^2.6.1",
     "ts-node": "^9.1.1",
