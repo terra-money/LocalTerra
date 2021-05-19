@@ -106,7 +106,7 @@ import { LCDClient } from "@terra-money/terra.js";
 
 const terra = new LCDClient({
   URL: "http://localhost:1317",
-  chainId: "localterra",
+  chainID: "localterra",
 });
 ```
 
