@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@terra-money/terra.js": "^2",
+    "@terra-money/terra.js": "^2.0.0-beta.4",
     "@types/node": "^15.3.0",
     "bluebird": "^3.7.2",
     "node-fetch": "^2.6.1",

@@ -12,17 +12,16 @@ services:
       - "26657:26657"
       - "1317:1317"
     command: terrad start
-  # oracle:
-  #   image: terramoney/pseudo-feeder:bombay
-  #   pull_policy: always
-  #   depends_on:
-  #     - terrad
-  #     - lcd
-  #   networks:
-  #     - terra
-  #   environment:
-  #     TESTNET_LCD_URL: http://terrad:1317
-  #   command: start
+  oracle:
+    image: terramoney/pseudo-feeder:bombay
+    pull_policy: always
+    depends_on:
+      - terrad
+    networks:
+      - terra
+    environment:
+      TESTNET_LCD_URL: http://terrad:1317
+    command: start
   # postgres:
   #   image: postgres:11
   #   volumes:
