@@ -22,50 +22,47 @@ services:
     environment:
       TESTNET_LCD_URL: http://terrad:1317
     command: start
-  # postgres:
-  #   image: postgres:11
-  #   volumes:
-  #     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-  #   networks:
-  #     - terra
-  #   environment:
-  #     POSTGRES_USER: dev
-  #     POSTGRES_PASSWORD: dev
+  postgres:
+    image: postgres:12
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - terra
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
   # redis:
   #   image: redis:latest
   #   networks:
   #     - terra
   #   ports:
   #     - "6379:6379"
-  # fcd-collector:
-  #   image: terramoney/fcd:bombay
-  #   pull_policy: always
-  #   depends_on:
-  #     - terrad
-  #     - lcd
-  #     - postgres
-  #   volumes:
-  #     - ./logs:/app/logs
-  #   networks:
-  #     - terra
-  #   env_file: fcd.env
-  #   command: collector
-  # fcd-api:
-  #   image: terramoney/fcd:bombay
-  #   pull_policy: always
-  #   depends_on:
-  #     - terrad
-  #     - lcd
-  #     - postgres
-  #   volumes:
-  #     - ./logs:/app/logs
-  #   networks:
-  #     - terra
-  #   ports:
-  #     - 3060:3060
-  #   env_file: fcd.env
-  #   command: start
-
+  fcd-collector:
+    image: terramoney/fcd:bombay
+    pull_policy: always
+    depends_on:
+      - terrad
+      - postgres
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - terra
+    env_file: fcd.env
+    command: collector
+  fcd-api:
+    image: terramoney/fcd:bombay
+    pull_policy: always
+    depends_on:
+      - terrad
+      - postgres
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - terra
+    ports:
+      - 3060:3060
+    env_file: fcd.env
+    command: start
 
 networks:
   terra:
