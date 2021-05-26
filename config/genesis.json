@@ -1,5 +1,5 @@
 {
-  "genesis_time": "2021-05-18T08:23:55.149917Z",
+  "genesis_time": "2021-05-26T10:02:06.396784Z",
   "chain_id": "localterra",
   "initial_height": "1",
   "consensus_params": {
@@ -123,6 +123,10 @@
           "address": "terra199vw7724lzkwz6lf2hsx04lrxfkz09tg8dlp6r",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -131,12 +135,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -148,6 +148,10 @@
           "address": "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -156,12 +160,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -173,6 +173,10 @@
           "address": "terra18wlvftxzj6zt0xugy2lr9nxzu402690ltaf4ss",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -181,12 +185,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -198,6 +198,10 @@
           "address": "terra1fmcjjt6yc9wqup2r06urnrd928jhrde6gcld6n",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -206,12 +210,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -223,6 +223,10 @@
           "address": "terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -231,12 +235,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -248,6 +248,10 @@
           "address": "terra1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -256,12 +260,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -273,6 +273,10 @@
           "address": "terra1e8ryd9ezefuucd4mje33zdms9m2s90m57878v9",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -281,12 +285,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -298,6 +298,10 @@
           "address": "terra17tv2hvwpg0ukqgd2y5ct2w54fyan7z0zxrm2f9",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -306,12 +310,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -323,6 +323,10 @@
           "address": "terra1757tkx08n0cqrw7p86ny9lnxsqeth0wgp0em95",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -331,12 +335,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -348,6 +348,10 @@
           "address": "terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -356,12 +360,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -373,6 +373,10 @@
           "address": "terra1lkccuqgj6sjwjn8gsa9xlklqv4pmrqg9dx2fxc",
           "coins": [
             {
+              "denom": "ueur",
+              "amount": "10000000000000000"
+            },
+            {
               "denom": "ukrw",
               "amount": "1000000000000000000"
             },
@@ -381,12 +385,8 @@
               "amount": "1000000000000000"
             },
             {
-              "denom": "umnt",
-              "amount": "1000000000000000000"
-            },
-            {
               "denom": "usdr",
-              "amount": "1000000000000000"
+              "amount": "10000000000000000"
             },
             {
               "denom": "uusd",
@@ -397,6 +397,10 @@
       ],
       "supply": [
         {
+          "denom": "ueur",
+          "amount": "110000000000000000"
+        },
+        {
           "denom": "ukrw",
           "amount": "11000000000000000000"
         },
@@ -405,12 +409,8 @@
           "amount": "11000000000000000"
         },
         {
-          "denom": "umnt",
-          "amount": "11000000000000000000"
-        },
-        {
           "denom": "usdr",
-          "amount": "11000000000000000"
+          "amount": "110000000000000000"
         },
         {
           "denom": "uusd",
@@ -616,8 +616,8 @@
             "tobin_tax": "0.002500000000000000"
           },
           {
-            "name": "umnt",
-            "tobin_tax": "0.020000000000000000"
+            "name": "ueur",
+            "tobin_tax": "0.002500000000000000"
           }
         ],
         "slash_fraction": "0.000100000000000000",
