@@ -1,6 +1,6 @@
 {
   "name": "pseudo-feeder",
-  "version": "0.5.3-bombay",
+  "version": "0.5.4-bombay",
   "description": "Oracle feeder that votes price as same as current exchange rate on mainnet",
   "scripts": {
     "start": "ts-node .",
