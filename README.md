@@ -1,6 +1,6 @@
 <p>&nbsp;</p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/terra-project/LocalTerra/master/img/localterra_logo_with_name.svg" width=500>
+<img src="https://raw.githubusercontent.com/terra-money/LocalTerra/master/img/localterra_logo_with_name.svg" width=500>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@ The advantages of LocalTerra over a public testnet are that:
 ## Usage
 
 ```sh
-$ git clone https://www.github.com/terra-project/LocalTerra
+$ git clone https://www.github.com/terra-money/LocalTerra
 $ cd LocalTerra
 ```
 
@@ -43,9 +43,9 @@ $ docker-compose up
 
 You should now have an environment with the following:
 
-- [terrad](http://github.com/terra-project/core) RPC node running on `tcp://localhost:26657`
+- [terrad](http://github.com/terra-money/core) RPC node running on `tcp://localhost:26657`
 - LCD running on http://localhost:1317
-- [FCD](http://www.github.com/terra-project/fcd) running on http://localhost:3060
+- [FCD](http://www.github.com/terra-money/fcd) running on http://localhost:3060
 - an oracle feeder feeding live prices from mainnet, trailing by 1 vote period
 
 If you need to turn off LocalTerra:
