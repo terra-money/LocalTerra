@@ -22,7 +22,7 @@ services:
       - "1317:1317"
     command: terracli rest-server --laddr=tcp://0.0.0.0:1317 --node=tcp://terrad:26657 --trust-node=true --unsafe-cors
   oracle:
-    image: terramoney/pseudo-feeder:0.5.2
+    image: terramoney/pseudo-feeder:0.5.3
     depends_on:
       - terrad
       - lcd

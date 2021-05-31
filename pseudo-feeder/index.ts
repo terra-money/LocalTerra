@@ -97,6 +97,10 @@ async function loop() {
     }
 
     const coins = rates
+      .filter(
+        (coin) =>
+          oracleParams.whitelist.findIndex((o) => o.name === coin.denom) !== -1
+      )
       .toArray()
       .map((r) => `${r.amount}${r.denom}`)
       .join(",");
