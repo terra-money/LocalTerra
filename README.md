@@ -51,7 +51,7 @@ You should now have an environment with the following:
 If you need to turn off LocalTerra:
 
 ```sh
-$ docker-compose down
+$ docker-compose stop
 ```
 
 To reset the world state, issue the following:
