@@ -649,8 +649,7 @@
         "max_validators": 100,
         "max_entries": 7,
         "historical_entries": 10000,
-        "bond_denom": "uluna",
-        "power_reduction": "1000000"
+        "bond_denom": "uluna"
       },
       "last_total_power": "0",
       "last_validator_powers": [],
