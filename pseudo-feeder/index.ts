@@ -1,4 +1,4 @@
-import { randomBytes } from 'crypto';
+import { randomBytes } from "crypto";
 import {
   Coins,
   OracleParams,
@@ -76,12 +76,7 @@ async function loop() {
       mainnetClient.oracle.exchangeRates(),
       testnetClient.oracle.parameters(),
       testnetClient.tendermint.blockInfo(),
-    ]).catch(() => []) as [Coins, OracleParams, BlockInfo]
-
-    if (!rates || !oracleParams || !latestBlock) {
-      await delay(5000);
-      continue;
-    }
+    ])
 
     const oracleVotePeriod = oracleParams.vote_period;
     const currentBlockHeight = parseInt(latestBlock.block.header.height, 10);
@@ -107,21 +102,20 @@ async function loop() {
 
     const voteMsg = new MsgAggregateExchangeRateVote(
       coins,
-      randomBytes(2).toString('hex'),
+      randomBytes(2).toString("hex"),
       mk.accAddress,
       mk.valAddress
     );
 
     const msgs = [lastSuccessVoteMsg, voteMsg.getPrevote()].filter(Boolean);
     const tx = await wallet.createAndSignTx({ msgs });
- 
+
     await testnetClient.tx
       .broadcast(tx)
       .then((result) => {
         console.log(
           `vote_period: ${currentVotePeriod}, txhash: ${result.txhash}`
         );
-
         lastSuccessVotePeriod = currentVotePeriod;
         lastSuccessVoteMsg = voteMsg;
       })
@@ -138,5 +132,6 @@ async function loop() {
 
   while (true) {
     await loop().catch(console.error);
+    await delay(5000);
   }
 })();
