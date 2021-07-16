@@ -23,8 +23,6 @@ init_bombay: get_bombay run_bombay
 
 clean: clean_columbus clean_bombay
 	-rm ./temp/* ./log/*
-	-rm -rf ./LocalTerra.columbus
-	-rm -rf ./LocalTerra.bombay
 	-docker rm state-migrator
 	-docker image rm migrator:$(LOCALTERRA_NEWER)
 
@@ -34,7 +32,7 @@ clean_bombay: kill_bombay
 	-docker-compose -f ./LocalTerra.bombay/docker-compose.yml rm -f
 
 init_submodules:
-	git submodule init
+	git submodule update --init
 
 get_columbus: init_submodules
 	cd LocalTerra.columbus; git checkout $(LOCALTERRA_OLDER)
