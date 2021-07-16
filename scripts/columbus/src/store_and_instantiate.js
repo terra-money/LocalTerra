@@ -1,11 +1,6 @@
 import { LCDClient, MsgStoreCode, MsgInstantiateContract, MnemonicKey, isTxError } from '@terra-money/terra.js';
 import * as fs from 'fs';
 
-// set default env
-if (!process.env.LOCALTERRA_OLDER) {
-        process.env['LOCALTERRA_OLDER']='v0.4.1';
-}
-
 // set default wasm binary
 if (!process.env.FILENAME_WASM) {
         process.env['FILENAME_WASM']='send_to_burn_address.wasm';
@@ -28,13 +23,13 @@ const wallet = terra.wallet(mk);
 
 const storeCode = new MsgStoreCode(
   wallet.key.accAddress,
-  fs.readFileSync(`../../contracts/${process.env.LOCALTERRA_OLDER}/${process.env.FILENAME_WASM}`).toString('base64')
+  fs.readFileSync(`../../contracts/columbus/${process.env.FILENAME_WASM}`).toString('base64')
 );
 
 const storeCodeTx = await wallet.createAndSignTx({
   msgs: [storeCode],
   gasPrices: { uluna:100 }, 
-  memo: "test to store code for older localterra",
+  memo: "test to store code for columbus",
 });
 
 const storeCodeTxResult = await terra.tx.broadcast(storeCodeTx);

@@ -35,7 +35,8 @@ init_submodules:
 	git submodule update --init
 
 get_columbus: init_submodules
-	cd LocalTerra.columbus; git checkout $(LOCALTERRA_OLDER)
+	@echo checkout tags...
+	cd LocalTerra.columbus; git checkout tags/$(LOCALTERRA_OLDER)
 
 get_bombay: init_submodules
 	cd LocalTerra.bombay; git checkout $(LOCALTERRA_NEWER)
@@ -54,9 +55,8 @@ kill_bombay:
 # to migrate
 
 export_columbus: kill_columbus
-	$(eval OLDER_LOCALTERRA_CONTAINER := $(shell echo localterra$(LOCALTERRA_OLDER)_terrad_1 | sed -e 's/\.//g'))
-	$(DOCKER) commit ${OLDER_LOCALTERRA_CONTAINER} origin.$(LOCALTERRA_OLDER)
-	$(DOCKER) run -v "$(PWD)/LocalTerra.columbus/config":/root/.terrad/config origin.$(LOCALTERRA_OLDER) terrad export --home /root/.terrad  > ./temp/exported.json
+	$(DOCKER) commit localterracolumbus_terrad_1 columbus.$(LOCALTERRA_OLDER)
+	$(DOCKER) run -v "$(PWD)/LocalTerra.columbus/config":/root/.terrad/config columbus.$(LOCALTERRA_OLDER) terrad export --home /root/.terrad  > ./temp/exported.json
 
 build_migrator:
 	$(DOCKER) build -t migrator:$(LOCALTERRA_NEWER) ./LocalTerra.bombay/terracore
@@ -75,11 +75,12 @@ migrate_to_bombay: build_migrator
 # transactions
 
 deploy_contract:
-	cd scripts/columbus; LOCALTERRA_OLDER=$(LOCALTERRA_OLDER) yarn test
+	#cd scripts/columbus; LOCALTERRA_OLDER=$(LOCALTERRA_OLDER) yarn test
+	cd scripts/columbus; yarn test 
 
 migrate_code:
-	cd scripts/bombay; LOCALTERRA_NEWER=$(LOCALTERRA_NEWER) yarn test 
-
+	#cd scripts/bombay; LOCALTERRA_NEWER=$(LOCALTERRA_NEWER) yarn test 
+	cd scripts/bombay; yarn test 
 
 # shortcuts
 sleep:

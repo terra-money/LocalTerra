@@ -1,11 +1,6 @@
 import { LCDClient, MsgMigrateCode, MsgInstantiateContract, MnemonicKey, isTxError } from '@terra-money/terra.js';
 import * as fs from 'fs';
 
-// set default env
-if (!process.env.LOCALTERRA_NEWER) {
-	process.env['LOCALTERRA_NEWER'] = 'bombay';
-}
-
 // set default wasm binary
 if (!process.env.FILENAME_WASM) {
 	process.env['FILENAME_WASM'] = 'send_to_burn_address.wasm';
@@ -34,7 +29,7 @@ const wallet = terra.wallet(mk);
 const migrateCode = new MsgMigrateCode(
   wallet.key.accAddress,
   parseInt(process.env.CODE_ID),
-  fs.readFileSync(`../../contracts/${process.env.LOCALTERRA_NEWER}/${process.env.FILENAME_WASM}`).toString('base64')
+  fs.readFileSync(`../../contracts/bombay/${process.env.FILENAME_WASM}`).toString('base64')
 );
 
 const migrateCodeTx = await wallet.createAndSignTx({
