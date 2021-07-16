@@ -39,8 +39,8 @@ init_submodules:
 get_columbus: init_submodules
 	cd LocalTerra.columbus; git checkout $(LOCALTERRA_OLDER)
 
-get_bombay:
-	cd LocalTerra.columbus; git checkout $(LOCALTERRA_NEWER)
+get_bombay: init_bombay
+	cd LocalTerra.bombay; git checkout $(LOCALTERRA_NEWER)
 
 run_columbus:
 	docker-compose -f ./LocalTerra.columbus/docker-compose.yml up -d
@@ -87,7 +87,7 @@ migrate_code:
 sleep:
 	sleep 5
 
-columbus: prepare init_columbus sleep deploy_contract
+columbus: init_columbus sleep deploy_contract
 
 bombay: export_columbus get_bombay migrate_to_bombay run_bombay sleep migrate_code
 
