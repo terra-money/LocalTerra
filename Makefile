@@ -39,7 +39,7 @@ init_submodules:
 get_columbus: init_submodules
 	cd LocalTerra.columbus; git checkout $(LOCALTERRA_OLDER)
 
-get_bombay: init_bombay
+get_bombay: init_submodules
 	cd LocalTerra.bombay; git checkout $(LOCALTERRA_NEWER)
 
 run_columbus:
