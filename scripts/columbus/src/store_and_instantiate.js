@@ -6,6 +6,11 @@ if (!process.env.FILENAME_WASM) {
         process.env['FILENAME_WASM']='send_to_burn_address.wasm';
 }
 
+// set default init msg for coontract
+if (!process.env.FILENAME_INITMSG) {
+        process.env['FILENAME_INITMSG']=process.env.FILENAME_WASM+'.init.json';
+}
+
 // test1 key from localterra accounts
 const mk = new MnemonicKey({
   mnemonic: 'notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius'
@@ -52,12 +57,12 @@ const {
   store_code: { code_id },
 } = storeCodeTxResult.logs[0].eventsByType;
 
+const initMsg = JSON.parse(fs.readFileSync(`../../contracts/columbus/${process.env.FILENAME_INITMSG}`));
+
 let instantiate = new MsgInstantiateContract(
   wallet.key.accAddress,
   +code_id[0], // code ID
-  {
-    count: 0,
-  }, // InitMsg
+  initMsg,
   { uluna: 20000000, ukrw: 2000000 }, // init coins
   true, // set migratable
 );
