@@ -1,0 +1,15 @@
+{
+  "name": "tester_bombay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node src/migrate_code"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@terra-money/terra.js": "^2.0.0-beta.14"
+  }
+}
