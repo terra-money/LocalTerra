@@ -1,0 +1,7 @@
+[
+  {
+    "validator_name": "localterra",
+    "validator_address": "terravaloper1dcegyrekltswvyy0xy69ydgxn9x8x32zdy3ua5",
+    "stargate_consensus_public_key": "{\"@type\": \"/cosmos.crypto.ed25519.PubKey\",\"key\": \"/zGmkgCWRFsJLETAzlzYsbu7EHS5HWpaSyR22rlFM68=\"}"
+  }
+]
