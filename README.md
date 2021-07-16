@@ -35,7 +35,7 @@ It deploys send_to_burn_address.wasm for example.
 
 ```bash
 # place your wasm binary into ./contracts/columbus/ before run make
-# set environment value FILENAME_WASM as name of the binary
+# set FILENAME_WASM as name of the binary
 FILENAME_WASM=send_to_burn_address.wasm  make deploy_contract
 # on success, see log/deployed.$(BLOCK_HEIGHT).log
 ```
@@ -54,7 +54,8 @@ It migrates code for send_to_burn_address.wasm for example.
 
 ```bash
 # place your wasm binary into ./contracts/bombay/ before run make
-# set environment value FILENAME_WASM as name of the binary
+# set FILENAME_WASM as name of the binary
+# set CODE_ID to use
 FILENAME_WASM=send_to_burn_address.wasm CODE_ID=1 make migrate_code
 ```
 
