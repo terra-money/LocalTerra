@@ -25,6 +25,7 @@ clean: clean_columbus clean_bombay
 	-rm ./temp/* ./log/*
 	-docker rm state-migrator
 	-docker image rm migrator:$(LOCALTERRA_NEWER)
+	git submodule update --init --force
 
 clean_columbus: kill_columbus
 	-docker-compose -f ./LocalTerra.columbus/docker-compose.yml rm -f
@@ -62,6 +63,7 @@ build_migrator:
 	$(DOCKER) build -t migrator:$(LOCALTERRA_NEWER) ./LocalTerra.bombay/terracore
 
 migrate_to_bombay: build_migrator
+	-mkdir ./temp
 	cp -fp temp/exported.json ./LocalTerra.bombay/config/exported.json
 	cp -fp config/pubkey-replace.json ./LocalTerra.bombay/config/
 	$(DOCKER) run --name state-migrator -v "$(PWD)/LocalTerra.bombay/config":/root/.terra/config migrator:$(LOCALTERRA_NEWER) \
@@ -76,6 +78,7 @@ migrate_to_bombay: build_migrator
 
 deploy_contract:
 	#cd scripts/columbus; LOCALTERRA_OLDER=$(LOCALTERRA_OLDER) yarn test
+	-mkdir ./log
 	cd scripts/columbus; yarn test 
 
 migrate_code:
