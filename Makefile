@@ -25,6 +25,7 @@ clean: clean_columbus clean_bombay
 	-rm ./temp/* ./log/*
 	-docker rm state-migrator
 	-docker image rm migrator:$(LOCALTERRA_NEWER)
+	-rm ./LocalTerra.bombay/config/exported.json ./LocalTerra.bombay/config/genesis.json.old ./LocalTerra.bombay/config/pubkey-replace.json
 	git submodule update --init --force
 
 clean_columbus: kill_columbus
