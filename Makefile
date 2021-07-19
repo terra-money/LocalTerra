@@ -44,8 +44,10 @@ get_bombay: init_submodules
 	cd LocalTerra.bombay; git checkout $(LOCALTERRA_NEWER)
 
 run_columbus:
+	docker-compose -f ./LocalTerra.columbus/docker-compose.yml pull
 	docker-compose -f ./LocalTerra.columbus/docker-compose.yml up -d
 run_bombay:
+	docker-compose -f ./LocalTerra.bombay/docker-compose.yml pull
 	docker-compose -f ./LocalTerra.bombay/docker-compose.yml up -d
 
 kill_columbus:
