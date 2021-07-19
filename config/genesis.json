@@ -706,13 +706,7 @@
       "params": {
         "max_contract_size": "512000",
         "max_contract_gas": "100000000",
-        "max_contract_msg_size": "1024",
-        "max_contract_data_size": "256",
-        "event_params": {
-          "max_attribute_num": "16",
-          "max_attribute_key_length": "64",
-          "max_attribute_value_length": "256"
-        }
+        "max_contract_msg_size": "1024"
       },
       "last_code_id": "0",
       "last_instance_id": "0",
