@@ -144,6 +144,12 @@ wal_file = "data/cs.wal/wal"
 + timeout_commit = "200ms"
 ```
 
+Or use this one-liner:
+
+```sh
+sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' config/config.toml
+```
+
 ### Modifying Genesis
 
 If you need to change the `genesis.json` file, you can alter it in `config/genesis.json`. This will get loaded when you reset your LocalTerra network.
