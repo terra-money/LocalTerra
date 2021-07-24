@@ -49,6 +49,7 @@ services:
       - terra
     env_file: fcd.env
     command: collector
+    restart: unless-stopped
   fcd-api:
     image: terramoney/fcd:bombay
     pull_policy: always
