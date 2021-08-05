@@ -31,7 +31,7 @@ The advantages of LocalTerra over a public testnet are that:
 ## Usage
 
 ```sh
-$ git clone https://www.github.com/terra-money/LocalTerra
+$ git clone --depth 1 https://www.github.com/terra-money/LocalTerra
 $ cd LocalTerra
 ```
 
