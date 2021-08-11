@@ -2,7 +2,7 @@ version: "3"
 
 services:
   terrad:
-    image: terramoney/localterra-core:bombay-next
+    image: terramoney/localterra-core:bombay
     pull_policy: always
     volumes:
       - ./config:/root/.terra/config
