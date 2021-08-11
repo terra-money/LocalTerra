@@ -431,7 +431,7 @@
     },
     "distribution": {
       "params": {
-        "community_tax": "0.020000000000000000",
+        "community_tax": "0.000000000000000000",
         "base_proposer_reward": "0.010000000000000000",
         "bonus_proposer_reward": "0.040000000000000000",
         "withdraw_addr_enabled": true
@@ -574,13 +574,10 @@
     },
     "market": {
       "params": {
-        "mint_base_pool": "1000000000000.000000000000000000",
-        "burn_base_pool": "100000000000.000000000000000000",
-        "pool_recovery_period": "14400",
-        "min_stability_spread": "0.020000000000000000"
-      },
-      "mint_pool_delta": "0.000000000000000000",
-      "burn_pool_delta": "0.000000000000000000"
+        "base_pool": "7000000000000.000000000000000000",
+        "pool_recovery_period": "200",
+        "min_stability_spread": "0.005000000000000000"
+      }
     },
     "mint": {
       "minter": {
@@ -589,7 +586,7 @@
       },
       "params": {
         "mint_denom": "uluna",
-        "inflation_rate_change": "0.130000000000000000",
+        "inflation_rate_change": "0.000000000000000000",
         "inflation_max": "0.200000000000000000",
         "inflation_min": "0.070000000000000000",
         "goal_bonded": "0.670000000000000000",
@@ -679,13 +676,13 @@
           "change_rate_max": "0.000250000000000000"
         },
         "reward_policy": {
-          "rate_min": "0.050000000000000000",
-          "rate_max": "0.500000000000000000",
+          "rate_min": "0.000000000000000000",
+          "rate_max": "1.000000000000000000",
           "cap": {
             "denom": "unused",
             "amount": "0"
           },
-          "change_rate_max": "0.025000000000000000"
+          "change_rate_max": "0.000000000000000000"
         },
         "seigniorage_burden_target": "0.670000000000000000",
         "mining_increment": "1.070000000000000000",
@@ -704,9 +701,9 @@
     "vesting": null,
     "wasm": {
       "params": {
-        "max_contract_size": "512000",
-        "max_contract_gas": "100000000",
-        "max_contract_msg_size": "1024"
+        "max_contract_size": "614400",
+        "max_contract_gas": "20000000",
+        "max_contract_msg_size": "4096"
       },
       "last_code_id": "0",
       "last_instance_id": "0",
