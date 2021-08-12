@@ -4,7 +4,7 @@
 
 smart contract migration tester for Terra via LocaTerra
 
-Migration is needed because there are some breaking changes for wasm contract between columbus-004 and bombay-0008.
+Migration is needed because there are some breaking changes for wasm contract between columbus-004 and bombay-0009.
 
 ## Requirements
 
@@ -13,7 +13,7 @@ Migration is needed because there are some breaking changes for wasm contract be
 * [Docker](https://www.docker.com/) installed and configured on your system
 * [`docker-compose`](https://github.com/docker/compose)
 * Supported known architecture: x86_64
-* node.js >= 12
+* node.js >= 14
 
 ## Usage
 
