@@ -35,6 +35,8 @@ $ git clone --depth 1 https://www.github.com/terra-money/LocalTerra
 $ cd LocalTerra
 ```
 
+> Use v0.4.1 tag instead of main for columbus-4 and tequila network
+
 Make sure your Docker daemon is running in the background and `docker-compose` is installed. Then start LocalTerra:
 
 ```sh
