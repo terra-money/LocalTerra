@@ -174,7 +174,7 @@ enable = true
 address = "0.0.0.0:9091"
 
 # EnableUnsafeCORS defines if CORS should be enabled (unsafe - use it at your own risk).
-enable-unsafe-cors = false
+enable-unsafe-cors = true
 
 ###############################################################################
 ###                        State Sync Configuration                         ###
