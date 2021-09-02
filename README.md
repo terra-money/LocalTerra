@@ -68,13 +68,17 @@ make clean
 
 ## Example
 
-This example stores/ cw20 contract on columbus-4 and
+
 
 ```bash
 make columbus-4
-FILENAME_WASM=cw20.col4.wasm FILENAME_INITMSG=cw20.json make deploy_contract
+FILENAME_WASM=a.wasm FILENAME_INITMSG=a.json make deploy_contract
+FILENAME_WASM=b.wasm FILENAME_INITMSG=b.json make deploy_contract
+FILENAME_WASM=c.wasm FILENAME_INITMSG=c.json make deploy_contract
 make columbus-5
-FILENAME_WASM=cw20.col5.wasm CODE_ID=1 migrate_code
+FILENAME_WASM=a.col5.wasm CODE_ID=1 migrate_code
+FILENAME_WASM=b.col5.wasm CODE_ID=2 migrate_code
+FILENAME_WASM=c.col5.wasm CODE_ID=3 migrate_code
 ```
 
 
