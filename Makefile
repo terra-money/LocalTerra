@@ -10,88 +10,96 @@ ifeq ($(LOCALTERRA_NEWER),)
 endif
 
 DOCKER := $(shell which docker)
+DOCKER_COMPOSE := $(shell which docker-compose)
 
 
-# to prepare
+init_columbus-4: get_columbus-4 run_columbus-4
+init_columbus-5: get_columbus-5 run_columbus-5
 
+clean: clean_columbus-4 clean_columbus-5
+	@echo cleaning up...
+	-@rm ./temp/* ./log/*
+	-@rm ./LocalTerra.columbus-5/config/exported.json ./LocalTerra.columbus-5/config/genesis.json.old ./LocalTerra.columbus-5/config/pubkey-replace.json
+	@git submodule update --init --force
 
-init_columbus: get_columbus run_columbus
-init_bombay: get_bombay run_bombay
+clean_columbus-4: kill_columbus-4
+	@echo cleaning up columbus-4... 
+	-@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-4/docker-compose.yml rm -f
+	-@rm ./LocalTerra.columbus-4/config/wasm.toml
 
-clean: clean_columbus clean_bombay
-	-rm ./temp/* ./log/*
-	-rm ./LocalTerra.bombay/config/exported.json ./LocalTerra.bombay/config/genesis.json.old ./LocalTerra.bombay/config/pubkey-replace.json
-	git submodule update --init --force
-
-clean_columbus: kill_columbus
-	-docker-compose -f ./LocalTerra.columbus/docker-compose.yml rm -f
-	-rm ./LocalTerra.columbus/config/wasm.toml
-clean_bombay: kill_bombay
-	-docker-compose -f ./LocalTerra.bombay/docker-compose.yml rm -f
+clean_columbus-5: kill_columbus-5
+	@echo cleaning up columbus-5... 
+	-@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-5/docker-compose.yml rm -f
 
 init_submodules:
-	git submodule update --init
+	@git submodule update --init
 
-get_columbus: init_submodules
+get_columbus-4: init_submodules
 	@echo checkout tags...
-	cd LocalTerra.columbus; git checkout tags/$(LOCALTERRA_OLDER)
+	@cd LocalTerra.columbus-4; git checkout tags/$(LOCALTERRA_OLDER)
 
-get_bombay: init_submodules
-	cd LocalTerra.bombay; git checkout $(LOCALTERRA_NEWER)
+get_columbus-5: init_submodules
+	@cd LocalTerra.columbus-5; git checkout $(LOCALTERRA_NEWER)
 
-run_columbus:
-	docker-compose -f ./LocalTerra.columbus/docker-compose.yml up -d
-	@echo install npm packages to run terra.js
-	cd scripts/columbus; npm i
+run_columbus-4:
+	@echo run LocalTerra for columbus-4...
+	@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-4/docker-compose.yml pull
+	@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-4/docker-compose.yml up -d
 
-run_bombay:
-	docker-compose -f ./LocalTerra.bombay/docker-compose.yml up -d
-	@echo install npm packages to run terra.js
-	cd scripts/bombay; npm i
+run_columbus-5:
+	@echo run LocalTerra for columbus-5...
+	@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-5/docker-compose.yml pull
+	@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-5/docker-compose.yml up -d
 
-kill_columbus:
-	docker-compose -f ./LocalTerra.columbus/docker-compose.yml kill
-kill_bombay:
-	docker-compose -f ./LocalTerra.bombay/docker-compose.yml kill
+kill_columbus-4:
+	@echo kill containers for columbus-4...
+	-@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-4/docker-compose.yml kill
+
+kill_columbus-5:
+	@echo kill containers for columbus-5...
+	-@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-5/docker-compose.yml kill
 
 
 # to migrate
 
-export_columbus: kill_columbus
-	-mkdir ./temp
-	$(DOCKER) commit localterracolumbus_terrad_1 columbus.$(LOCALTERRA_OLDER)
-	$(DOCKER) run --rm -v "$(PWD)/LocalTerra.columbus/config":/root/.terrad/config columbus.$(LOCALTERRA_OLDER) terrad export --home /root/.terrad  > ./temp/exported.json
+export_columbus-4: kill_columbus-4
+	@echo export columbus-4 state...
+	-@mkdir ./temp
+	@$(DOCKER) commit localterracolumbus-4_terrad_1 columbus-4.$(LOCALTERRA_OLDER)
+	@$(DOCKER) run --rm -v "$(PWD)/LocalTerra.columbus-4/config":/root/.terrad/config columbus-4.$(LOCALTERRA_OLDER) terrad export --home /root/.terrad  > ./temp/exported.json
 
 build_migrator:
-	$(DOCKER) build -t migrator:$(LOCALTERRA_NEWER) ./LocalTerra.bombay/terracore
+	@$(DOCKER) build -t migrator:$(LOCALTERRA_NEWER) ./LocalTerra.columbus-5/terracore
 
-migrate_to_bombay: build_migrator
-	-mkdir ./temp
-	cp -fp temp/exported.json ./LocalTerra.bombay/config/exported.json
-	cp -fp config/pubkey-replace.json ./LocalTerra.bombay/config/
-	$(DOCKER) run --rm --name state-migrator -v "$(PWD)/LocalTerra.bombay/config":/root/.terra/config migrator:$(LOCALTERRA_NEWER) \
+migrate_to_columbus-5: build_migrator
+	@echo migrate from columbus-4 to columbus-5...
+	-@mkdir ./temp
+	@cp -fp temp/exported.json ./LocalTerra.columbus-5/config/exported.json
+	@cp -fp config/pubkey-replace.json ./LocalTerra.columbus-5/config/
+	@$(DOCKER) run --rm --name state-migrator -v "$(PWD)/LocalTerra.columbus-5/config":/root/.terra/config migrator:$(LOCALTERRA_NEWER) \
 		terrad migrate /root/.terra/config/exported.json \
 		--chain-id localterra --replacement-cons-keys /root/.terra/config/pubkey-replace.json \
 		--initial-height 1 --genesis-time "2021-07-12T01:00:00Z" > ./temp/migrated.json
-	-mv ./LocalTerra.bombay/config/genesis.json ./LocalTerra.bombay/config/genesis.json.old
-	mv ./temp/migrated.json ./LocalTerra.bombay/config/genesis.json
-
+	-@mv ./LocalTerra.columbus-5/config/genesis.json ./LocalTerra.columbus-5/config/genesis.json.old
+	@mv ./temp/migrated.json ./LocalTerra.columbus-5/config/genesis.json
 
 
 # transactions
 
 deploy_contract:
-	-mkdir ./log
-	cd scripts/columbus; npm run test 
+	-@mkdir ./log
+	@echo install npm packages to run terra.js
+	@cd scripts/columbus-4; npm i
+	@echo submit storeCode and instantiateContract
+	@cd scripts/columbus-4; npm run test 
 
 migrate_code:
-	cd scripts/bombay; npm run test
+	@echo install npm packages to run terra.js
+	@cd scripts/columbus-5; npm i
+	@echo submit migrateCode tx
+	@cd scripts/columbus-5; npm run test
 
-# shortcuts
-sleep:
-	sleep 5
+columbus-4: init_columbus-4
 
-columbus: init_columbus sleep deploy_contract
-
-bombay: export_columbus get_bombay migrate_to_bombay run_bombay sleep migrate_code
+columbus-5: export_columbus-4 get_columbus-5 migrate_to_columbus-5 run_columbus-5 
 

@@ -1,7 +1,7 @@
-[submodule "bombay"]
-	path = LocalTerra.bombay
+[submodule "bomay"]
+	path = LocalTerra.columbus-5
 	url = https://github.com/terra-money/LocalTerra
 [submodule "columbus"]
-	path = LocalTerra.columbus
+	path = LocalTerra.columbus-4
 	url = https://github.com/terra-money/LocalTerra
 	branch = v0.4.1

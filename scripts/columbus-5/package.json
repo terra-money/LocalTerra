@@ -1,5 +1,5 @@
 {
-  "name": "tester_bombay",
+  "name": "tester_coumbus-5",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@terra-money/terra.js": "^2.0.0-beta.17"
+    "@terra-money/terra.js": "^2.0.4"
   }
 }
