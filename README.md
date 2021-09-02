@@ -11,7 +11,7 @@ Migration is needed because there are some breaking changes for wasm contract be
 ---
 
 * [Docker](https://www.docker.com/) installed and configured on your system
-* [`docker-compose`](https://github.com/docker/compose) ^1
+* [`docker-compose`](https://github.com/docker/compose) ^1.29.2
 * Supported known architecture: x86_64
 * node.js >= 14
 
@@ -37,9 +37,9 @@ FILENAME_WASM=send_to_burn_address.wasm  FILENAME_INITMSG=s2ba.json make deploy_
 # on success, see log/deployed.$(BLOCK_HEIGHT).log
 ```
 
-### Bombay
+### Columbus-5
 
-Export columbus, run migrated columbus-5 and do migrateCode
+this runs migrated columbus-5 and do migrateCode
 
 It migrates code for send_to_burn_address.wasm for example.
 
@@ -63,6 +63,21 @@ Clean LocalTerra containers, temporary files and logs
 ```bash
 make clean
 ```
+
+---
+
+## Example
+
+This example stores/ cw20 contract on columbus-4 and
+
+```bash
+make columbus-4
+FILENAME_WASM=cw20.col4.wasm FILENAME_INITMSG=cw20.json make deploy_contract
+make columbus-5
+FILENAME_WASM=cw20.col5.wasm CODE_ID=1 migrate_code
+```
+
+
 
 ---
 
