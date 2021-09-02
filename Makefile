@@ -21,6 +21,8 @@ clean: clean_columbus-4 clean_columbus-5
 	-@rm ./temp/* ./log/*
 	-@rm ./LocalTerra.columbus-5/config/exported.json ./LocalTerra.columbus-5/config/genesis.json.old ./LocalTerra.columbus-5/config/pubkey-replace.json
 	@git submodule update --init --force
+	@echo
+	@echo all clean.
 
 clean_columbus-4: kill_columbus-4
 	@echo cleaning up columbus-4... 
@@ -45,11 +47,15 @@ run_columbus-4:
 	@echo run LocalTerra for columbus-4...
 	@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-4/docker-compose.yml pull
 	@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-4/docker-compose.yml up -d
+	@echo 
+	@echo columbus-4 is running now.
 
 run_columbus-5:
 	@echo run LocalTerra for columbus-5...
 	@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-5/docker-compose.yml pull
 	@$(DOCKER_COMPOSE) -f ./LocalTerra.columbus-5/docker-compose.yml up -d
+	@echo 
+	@echo columbus-5 is running now.
 
 kill_columbus-4:
 	@echo kill containers for columbus-4...
@@ -82,6 +88,8 @@ migrate_to_columbus-5: build_migrator
 		--initial-height 1 --genesis-time "2021-07-12T01:00:00Z" > ./temp/migrated.json
 	-@mv ./LocalTerra.columbus-5/config/genesis.json ./LocalTerra.columbus-5/config/genesis.json.old
 	@mv ./temp/migrated.json ./LocalTerra.columbus-5/config/genesis.json
+	@echo 
+	@echo state of columbus-4 have migrated to genesis.json for columbus-5 
 
 
 # transactions

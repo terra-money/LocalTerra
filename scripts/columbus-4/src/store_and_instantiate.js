@@ -28,13 +28,12 @@ const wallet = terra.wallet(mk);
 
 const storeCode = new MsgStoreCode(
   wallet.key.accAddress,
-  fs.readFileSync(`../../contracts/columbus/${process.env.FILENAME_WASM}`).toString('base64')
+  fs.readFileSync(`../../contracts/columbus-4/${process.env.FILENAME_WASM}`).toString('base64')
 );
 
 const storeCodeTx = await wallet.createAndSignTx({
   msgs: [storeCode],
   gasPrices: { uluna:100 }, 
-  memo: "test to store code for columbus",
 });
 
 const storeCodeTxResult = await terra.tx.broadcast(storeCodeTx);
@@ -57,7 +56,7 @@ const {
   store_code: { code_id },
 } = storeCodeTxResult.logs[0].eventsByType;
 
-const initMsg = JSON.parse(fs.readFileSync(`../../contracts/columbus/${process.env.FILENAME_INITMSG}`));
+const initMsg = JSON.parse(fs.readFileSync(`../../contracts/columbus-4/${process.env.FILENAME_INITMSG}`));
 
 let instantiate = new MsgInstantiateContract(
   wallet.key.accAddress,

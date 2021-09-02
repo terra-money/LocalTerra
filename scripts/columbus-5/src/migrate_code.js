@@ -29,7 +29,7 @@ const wallet = terra.wallet(mk);
 const migrateCode = new MsgMigrateCode(
   wallet.key.accAddress,
   parseInt(process.env.CODE_ID),
-  fs.readFileSync(`../../contracts/bombay/${process.env.FILENAME_WASM}`).toString('base64')
+  fs.readFileSync(`../../contracts/columbus-5/${process.env.FILENAME_WASM}`).toString('base64')
 );
 
 const migrateCodeTx = await wallet.createAndSignTx({
