@@ -1,4 +1,4 @@
-[submodule "bomay"]
+[submodule "bombay"]
 	path = LocalTerra.columbus-5
 	url = https://github.com/terra-money/LocalTerra
 [submodule "columbus"]
