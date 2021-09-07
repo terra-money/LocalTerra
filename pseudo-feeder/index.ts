@@ -1,3 +1,4 @@
+import * as net from "net";
 import { randomBytes } from "crypto";
 import {
   Coins,
@@ -20,8 +21,37 @@ function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function checkConnection(host: string, port: number, timeout = 10000) {
+  return new Promise(function (resolve, reject) {
+    timeout = timeout || 10000; // default of 10 seconds
+    var timer = setTimeout(function () {
+      reject("timeout");
+      socket.end();
+    }, timeout);
+    var socket = net.createConnection(port, host, function () {
+      clearTimeout(timer);
+      resolve("");
+      socket.end();
+    });
+    socket.on("error", function (err) {
+      clearTimeout(timer);
+      reject(err);
+    });
+  });
+}
+
 async function waitForFirstBlock(client: LCDClient) {
   let shouldTerminate = false;
+
+  console.info("waiting for connectivity");
+
+  const [_, host, port] = /https?:\/\/([a-zA-Z0-9]+)\:(\d+)/.exec(
+    TESTNET_LCD_URL
+  );
+
+  while (await checkConnection(host, +port)) {
+    await delay(5000);
+  }
 
   console.info("waiting for first block");
 

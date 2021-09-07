@@ -40,7 +40,7 @@ services:
   #   ports:
   #     - "6379:6379"
   fcd-collector:
-    image: terramoney/fcd:1.0.0-beta.0
+    image: terramoney/fcd:1.0.0-beta.2
     depends_on:
       - terrad
       - postgres
@@ -52,7 +52,7 @@ services:
     command: collector
     restart: unless-stopped
   fcd-api:
-    image: terramoney/fcd:1.0.0-alpha.12
+    image: terramoney/fcd:1.0.0-beta.2
     depends_on:
       - terrad
       - postgres
