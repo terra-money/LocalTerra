@@ -49,9 +49,7 @@ async function waitForFirstBlock(client: LCDClient) {
     TESTNET_LCD_URL
   );
 
-  while (await checkConnection(host, +port)) {
-    await delay(5000);
-  }
+  while (await checkConnection(host, +port).catch(err => err));
 
   console.info("waiting for first block");
 
