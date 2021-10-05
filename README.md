@@ -70,24 +70,26 @@ Terra Station has built-in support for LocalTerra, which enables you to interact
 
 ![station_localterra](./img/station-localterra.png)
 
-### terracli
+### terrad
 
-Make sure you have the same version of `terracli` installed as LocalTerra. Then, you can use `terracli` to talk to your LocalTerra `terrad` node:
+**NOTE:** 'terracli' has been deprecated and all of its functionalities have been merged into 'terrad'.
+
+Make sure you have the same version of `terrad` installed as LocalTerra. Then, you can use `terrad` to talk to your LocalTerra `terrad` node:
 
 ```sh
-$ terracli status
+$ terrad status
 ```
 
-This automatically works because `terracli` connects to `localhost:26657` by default. More explicitly:
+This automatically works because `terrad` connects to `localhost:26657` by default. More explicitly:
 
 ```sh
-$ terracli status --node=tcp://localhost:26657
+$ terrad status --node=tcp://localhost:26657
 ```
 
-You should now be able to issue normal commands with `terracli` against your LocalTerra network:
+You should now be able to issue normal commands with `terrad` against your LocalTerra network:
 
 ```sh
-$ terracli query account terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8
+$ terrad query account terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8
 ```
 
 ### Terra SDK for Python
