@@ -10,4 +10,4 @@ ENV PATH /root/bin:$PATH
 
 COPY terrad ./bin/
 
-RUN terrad unsafe-reset-all
+RUN terrad init localterra
