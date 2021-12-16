@@ -4,25 +4,25 @@
 </p>
 
 <p align="center">
-Instant, zero-config Terra blockchain and ecosystem.
+An instant, zero-config Terra blockchain and ecosystem.
 </p>
 
 <br/>
 
 ## What is LocalTerra?
 
-LocalTerra is a complete Terra testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file, designed to make it easy for smart contract developers to test out their contracts on a sandboxed environment before moving to a live testnet or mainnet.
+LocalTerra is a complete Terra testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file. LocalTerra is designed to make it easy for smart contract developers to test out their contracts in a sandboxed environment before moving to a live testnet or mainnet.
 
-LocalTerra comes pre-configured with opinionated, sensible defaults for a standard testing environment. If other projects mention testing on LocalTerra, they are referring to the settings defined in this repo.
+LocalTerra comes pre-configured with opinionated, sensible defaults for standard testing environments. If other projects mention testing on LocalTerra, they are referring to the settings defined in this repo.
 
-The advantages of LocalTerra over a public testnet are that:
+The advantages of LocalTerra over a public testnet:
 
-- world state is easily modifiable
-- quick to reset for quick iterations
-- easy to simulate different scenarios
-- validator behavior is controllable
+- Easily modifiable world states
+- quick to resets for quick iterations
+- easy simulations of different scenarios
+- Controllable validator behavior
 
-## Requirements
+## Prerequisites
 
 - [Docker](https://www.docker.com/) installed and configured on your system
 - [`docker-compose`](https://github.com/docker/compose)
@@ -30,39 +30,43 @@ The advantages of LocalTerra over a public testnet are that:
 
 ## Usage
 
+1. Install LocalTerra:
+
 ```sh
 $ git clone --depth 1 https://www.github.com/terra-money/LocalTerra
 $ cd LocalTerra
 ```
 
-> Use v0.4.1 tag instead of main for columbus-4 and tequila network
+2. Make sure your Docker daemon is running in the background and [`docker-compose`](https://github.com/docker/compose) is installed.
 
-Make sure your Docker daemon is running in the background and `docker-compose` is installed. Then start LocalTerra:
+3. Start LocalTerra:
 
 ```sh
 $ docker-compose up
 ```
 
-You should now have an environment with the following:
+Your environment now contains:
 
 - [terrad](http://github.com/terra-money/core) RPC node running on `tcp://localhost:26657`
 - LCD running on http://localhost:1317
 - [FCD](http://www.github.com/terra-money/fcd) running on http://localhost:3060
-- an oracle feeder feeding live prices from mainnet, trailing by 1 vote period
+- An oracle feeder feeding live prices from mainnet, trailing by 1 vote period
 
-If you need to turn off LocalTerra:
+### Turn off and restart
+
+To turn off LocalTerra:
 
 ```sh
 $ docker-compose stop
 ```
 
-To reset the world state, issue the following:
+To reset the world state:
 
 ```sh
 $ docker-compose rm
 ```
 
-## LocalTerra and...
+## Integrations
 
 ### Terra Station
 
@@ -74,7 +78,9 @@ Terra Station has built-in support for LocalTerra, which enables you to interact
 
 **NOTE:** 'terracli' has been deprecated and all of its functionalities have been merged into 'terrad'.
 
-Make sure you have the same version of `terrad` installed as LocalTerra. Then, you can use `terrad` to talk to your LocalTerra `terrad` node:
+1. Make sure you have the same version of `terrad` installed as LocalTerra.
+
+2. Use `terrad` to talk to your LocalTerra `terrad` node:
 
 ```sh
 $ terrad status
@@ -86,7 +92,7 @@ This automatically works because `terrad` connects to `localhost:26657` by defau
 $ terrad status --node=tcp://localhost:26657
 ```
 
-You should now be able to issue normal commands with `terrad` against your LocalTerra network:
+3. You can now issue normal commands with `terrad` against your LocalTerra network:
 
 ```sh
 $ terrad query account terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8
@@ -94,7 +100,7 @@ $ terrad query account terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8
 
 ### Terra SDK for Python
 
-You can connect to the chain through LocalTerra's LCD server.
+Connect to the chain through LocalTerra's LCD server:
 
 ```python
 from terra_sdk.client.lcd import LCDClient
@@ -103,7 +109,7 @@ terra = LCDClient("localterra", "http://localhost:1317")
 
 ### Terra.js
 
-You can connect to the chain using `LCDClient` against LocalTerra's LCD server.
+Connect to the chain using `LCDClient` against LocalTerra's LCD server:
 
 ```ts
 import { LCDClient } from "@terra-money/terra.js";
@@ -116,7 +122,9 @@ const terra = new LCDClient({
 
 ## Configuring LocalTerra
 
-Since the majority of LocalTerra is implemented through a `docker-compose.yml` file, it is easily customizable and can be considered a starting template point for setting up your own local Terra testnet with Docker containers. Out-of-the-box, LocalTerra comes preconfigured with opinionated settings such as:
+The majority of LocalTerra is implemented through a `docker-compose.yml` file making it easily customizable. You can use LocalTerra as a starting template point for setting up your own local Terra testnet with Docker containers.
+
+Out-of-the-box, LocalTerra comes preconfigured with opinionated settings such as:
 
 - ports defined for RPC (26657), LCD (1317) and FCD (3060)
 - standard [accounts](#accounts) (shown below)
@@ -127,7 +135,11 @@ You can modify the node configuration of your validator in `config/config.toml` 
 
 #### PRO TIP: Speed Up Block Time
 
-LocalTerra is often used alongside a script written with Terra.js or Terra Python SDK as a convenient way to do integration tests. You can greatly improve the experience by speeding up the block time. Go ahead and edit `config/config.toml`'s `[consensus]` parameters. Here, we have chosen to replace all timeouts to `200ms`, but you can experiment with other values.
+LocalTerra is often used alongside a script written with Terra.js or Terra Python SDK as a convenient way to do integration tests. You can greatly improve the experience by speeding up the block time.
+
+To increase block time, edit the `[consensus]` parameters located in `config/config.toml` and input your desired values.
+
+The following example configures all timeouts to `200ms`:
 
 ```diff
 ##### consensus configuration options #####
@@ -148,7 +160,7 @@ wal_file = "data/cs.wal/wal"
 + timeout_commit = "200ms"
 ```
 
-Or use this one-liner:
+You can also use the following single line to configure timeouts:
 
 ```sh
 sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' config/config.toml
@@ -156,7 +168,7 @@ sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' confi
 
 ### Modifying Genesis
 
-If you need to change the `genesis.json` file, you can alter it in `config/genesis.json`. This will get loaded when you reset your LocalTerra network.
+You can change the `genesis.json` file by altering `config/genesis.json`. Restart your LocalTerra to load your changes.
 
 ## Accounts
 
