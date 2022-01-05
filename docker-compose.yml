@@ -2,7 +2,7 @@ version: "3"
 
 services:
   terrad:
-    image: terramoney/localterra-core:0.5.9
+    image: terramoney/localterra-core:0.5.14
     pull_policy: always
     volumes:
       - ./config:/root/.terra/config
