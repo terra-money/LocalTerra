@@ -15,7 +15,7 @@ services:
       - "9091:9091"
     command: terrad start
   oracle:
-    image: terramoney/pseudo-feeder:bombay
+    image: terramoney/pseudo-feeder:0.5.5
     pull_policy: always
     depends_on:
       - terrad
@@ -40,7 +40,7 @@ services:
   #   ports:
   #     - "6379:6379"
   fcd-collector:
-    image: terramoney/fcd:1.0.10
+    image: terramoney/fcd:1.0.11
     depends_on:
       - terrad
       - postgres
@@ -52,7 +52,7 @@ services:
     command: collector
     restart: unless-stopped
   fcd-api:
-    image: terramoney/fcd:1.0.10
+    image: terramoney/fcd:1.0.11
     depends_on:
       - terrad
       - postgres

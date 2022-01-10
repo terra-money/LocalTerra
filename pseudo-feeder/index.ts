@@ -4,12 +4,11 @@ import {
   LCDClient,
   MnemonicKey,
   MsgAggregateExchangeRateVote,
-  StdFee,
 } from "@terra-money/terra.js";
 
 const {
   MAINNET_LCD_URL = "https://lcd.terra.dev",
-  MAINNET_CHAIN_ID = "columbus-4",
+  MAINNET_CHAIN_ID = "columbus-5",
   TESTNET_LCD_URL = "http://localhost:1317",
   TESTNET_CHAIN_ID = "localterra",
   MNEMONIC = "satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn",
@@ -134,7 +133,7 @@ async function loop() {
     );
 
     const msgs = [lastSuccessVoteMsg, voteMsg.getPrevote()].filter(Boolean);
-    const tx = await wallet.createAndSignTx({ msgs, fee: new StdFee(200000, '30000uusd') });
+    const tx = await wallet.createAndSignTx({ msgs });
 
     await testnetClient.tx
       .broadcast(tx)
