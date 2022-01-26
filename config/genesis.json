@@ -690,7 +690,7 @@
         "window_long": "52",
         "window_probation": "12"
       },
-      "tax_rate": "0.001000000000000000",
+      "tax_rate": "0.000000000000000000",
       "reward_weight": "0.050000000000000000",
       "tax_caps": [],
       "tax_proceeds": [],
