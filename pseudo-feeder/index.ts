@@ -4,6 +4,7 @@ import {
   LCDClient,
   MnemonicKey,
   MsgAggregateExchangeRateVote,
+  Fee
 } from "@terra-money/terra.js";
 
 const {
@@ -133,7 +134,7 @@ async function loop() {
     );
 
     const msgs = [lastSuccessVoteMsg, voteMsg.getPrevote()].filter(Boolean);
-    const tx = await wallet.createAndSignTx({ msgs });
+    const tx = await wallet.createAndSignTx({ msgs, fee: new Fee(200000, '30000uusd') });
 
     await testnetClient.tx
       .broadcast(tx)
