@@ -42,7 +42,7 @@ async function waitForFirstBlock(client: LCDClient) {
 
   console.info("waiting for connectivity");
 
-  const [_, host, port] = /https?:\/\/([a-zA-Z0-9]+)\:(\d+)/.exec(
+  const [_, host, port] = /https?:\/\/([a-zA-Z0-9][a-zA-Z0-9\.-]+)\:(\d+)/.exec(
     TESTNET_LCD_URL
   );
 
