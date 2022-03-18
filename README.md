@@ -27,6 +27,7 @@ LocalTerra has the following advantages over a public testnet:
 - [Docker](https://www.docker.com/)
 - [`docker-compose`](https://github.com/docker/compose)
 - Supported known architecture: x86_64
+- 16+ GB of RAM is recommended (for 8+ GB, [Bombay testnet](https://docs.terra.money/docs/develop/dapp/quick-start/using-terrain-testnet.html) is recommended)
 
 ## Install LocalTerra
 
