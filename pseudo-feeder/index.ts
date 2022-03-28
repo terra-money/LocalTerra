@@ -7,7 +7,7 @@ import {
 } from "@terra-money/terra.js";
 import { parse } from "toml";
 import * as fs from "fs";
-import { toMs } from 'ms-typescript'
+import * as ms from "ms"
 
 const {
   MAINNET_LCD_URL = "https://lcd.terra.dev",
@@ -27,8 +27,7 @@ const timeout_prevote_delta = toMs(config.consensus.timeout_prevote_delta); // 5
 const timeout_prevcommit = toMs(config.consensus.timeout_precommit); // 1s by default
 const timeout_precommit_delta = toMs(config.consensus.timeout_precommit_delta); // 500ms by default
 */
-const timeout_commit = toMs(config.consensus.timeout_commit); // 5s by default
-
+const timeoutCommit = ms(config.consensus.timeout_commit); // 5s by default
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -67,7 +66,7 @@ async function waitForFirstBlock(client: LCDClient) {
   console.info("waiting for first block");
 
   while (!shouldTerminate) {
-    await delay(timeout_commit);
+    await delay(timeoutCommit);
     shouldTerminate = await client.tendermint
       .blockInfo()
       .then(async (blockInfo) => {
@@ -80,7 +79,7 @@ async function waitForFirstBlock(client: LCDClient) {
       })
       .catch(async (err) => {
         console.error(err);
-        await delay(timeout_commit);
+        await delay(timeoutCommit);
         return false;
       });
 
@@ -138,7 +137,7 @@ async function loop() {
       (lastSuccessVotePeriod && (lastSuccessVotePeriod === currentVotePeriod)) ||
       (indexInVotePeriod >= oracleVotePeriod - 1)
     ) {
-      await delay(timeout_commit);
+      await delay(timeoutCommit);
       continue;
     }
 
@@ -168,9 +167,9 @@ async function loop() {
     }
     catch (err) {
       console.log(err.message);
-      delay(timeout_commit);
+      delay(timeoutCommit);
     };
-    await delay(timeout_commit * (oracleVotePeriod - 1));   // (period-1) because of broadcast
+    await delay(timeoutCommit * (oracleVotePeriod - 1));   // (period-1) because of broadcast
   }
 }
 
@@ -179,6 +178,6 @@ async function loop() {
 
   while (true) {
     await loop().catch(console.error);
-    await delay(timeout_commit * 5);
+    await delay(timeoutCommit * 5);
   }
 })();
