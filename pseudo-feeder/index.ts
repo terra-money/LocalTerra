@@ -4,8 +4,10 @@ import {
   LCDClient,
   MnemonicKey,
   MsgAggregateExchangeRateVote,
-  Fee
 } from "@terra-money/terra.js";
+import { parse } from "toml";
+import * as fs from "fs";
+import * as ms from "ms"
 
 const {
   MAINNET_LCD_URL = "https://lcd.terra.dev",
@@ -14,6 +16,18 @@ const {
   TESTNET_CHAIN_ID = "localterra",
   MNEMONIC = "satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn",
 } = process.env;
+
+const config = parse(fs.readFileSync("./config.toml").toString());
+
+/* unused
+const timeout_propose = toMs(config.consensus.timeout_propose); // 3s by default
+const timeout_propose_delta = toMs(config.consensus.timeout_propose_delta);  // 500ms by default
+const timeout_prevote = toMs(config.consensus.timeout_prevote); // 1s by default
+const timeout_prevote_delta = toMs(config.consensus.timeout_prevote_delta); // 500ms by default
+const timeout_prevcommit = toMs(config.consensus.timeout_precommit); // 1s by default
+const timeout_precommit_delta = toMs(config.consensus.timeout_precommit_delta); // 500ms by default
+*/
+const timeoutCommit = ms(config.consensus.timeout_commit); // 5s by default
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -52,10 +66,10 @@ async function waitForFirstBlock(client: LCDClient) {
   console.info("waiting for first block");
 
   while (!shouldTerminate) {
+    await delay(timeoutCommit);
     shouldTerminate = await client.tendermint
       .blockInfo()
       .then(async (blockInfo) => {
-        await delay(5000);
 
         if (blockInfo?.block) {
           return +blockInfo.block?.header.height > 0;
@@ -65,7 +79,7 @@ async function waitForFirstBlock(client: LCDClient) {
       })
       .catch(async (err) => {
         console.error(err);
-        await delay(1000);
+        await delay(timeoutCommit);
         return false;
       });
 
@@ -97,23 +111,33 @@ async function loop() {
   let lastSuccessVotePeriod: number;
   let lastSuccessVoteMsg: MsgAggregateExchangeRateVote;
 
+  // to get initial rates and params
+  let [rates, oracleParams] = await Promise.all([
+    mainnetClient.oracle.exchangeRates(),
+    testnetClient.oracle.parameters(),
+  ]);
+
+  setInterval(async () => {
+    try {
+      [rates, oracleParams] = await Promise.all([
+        mainnetClient.oracle.exchangeRates(),
+        testnetClient.oracle.parameters(),
+      ]);
+    } catch (e) { }
+  }, 10000);  // 5s -> 10s: to avoid rate limit
+
   while (true) {
-    const [rates, oracleParams, latestBlock] = await Promise.all([
-      mainnetClient.oracle.exchangeRates(),
-      testnetClient.oracle.parameters(),
-      testnetClient.tendermint.blockInfo(),
-    ])
+    const latestBlock = await testnetClient.tendermint.blockInfo();
 
     const oracleVotePeriod = oracleParams.vote_period;
     const currentBlockHeight = parseInt(latestBlock.block.header.height, 10);
     const currentVotePeriod = Math.floor(currentBlockHeight / oracleVotePeriod);
     const indexInVotePeriod = currentBlockHeight % oracleVotePeriod;
-
     if (
-      (lastSuccessVotePeriod && lastSuccessVotePeriod === currentVotePeriod) ||
-      indexInVotePeriod >= oracleVotePeriod - 1
+      (lastSuccessVotePeriod && (lastSuccessVotePeriod === currentVotePeriod)) ||
+      (indexInVotePeriod >= oracleVotePeriod - 1)
     ) {
-      await delay(1000);
+      await delay(timeoutCommit);
       continue;
     }
 
@@ -134,22 +158,18 @@ async function loop() {
     );
 
     const msgs = [lastSuccessVoteMsg, voteMsg.getPrevote()].filter(Boolean);
-    const tx = await wallet.createAndSignTx({ msgs, fee: new Fee(200000, '30000uusd') });
-
-    await testnetClient.tx
-      .broadcast(tx)
-      .then((result) => {
-        console.log(
-          `vote_period: ${currentVotePeriod}, txhash: ${result.txhash}`
-        );
-        lastSuccessVotePeriod = currentVotePeriod;
-        lastSuccessVoteMsg = voteMsg;
-      })
-      .catch((err) => {
-        console.error(err.message);
-      });
-
-    await delay(5000);
+    try {
+      const tx = await wallet.createAndSignTx({ msgs });
+      const result = await testnetClient.tx.broadcast(tx);
+      console.log(`vote_period: ${currentVotePeriod}, txhash: ${result.txhash}`);
+      lastSuccessVotePeriod = currentVotePeriod;
+      lastSuccessVoteMsg = voteMsg;
+    }
+    catch (err) {
+      console.log(err.message);
+      delay(timeoutCommit);
+    };
+    await delay(timeoutCommit * (oracleVotePeriod - 1));   // (period-1) because of broadcast
   }
 }
 
@@ -158,6 +178,6 @@ async function loop() {
 
   while (true) {
     await loop().catch(console.error);
-    await delay(5000);
+    await delay(timeoutCommit * 5);
   }
 })();
