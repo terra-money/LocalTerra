@@ -1,11 +1,10 @@
 version: "3"
 
 services:
-  terrad:
-    osmosisd: osmolabs/osmosis:7.1.0
-    pull_policy: always
+  osmosisd:
+    image: osmolabs/osmosis:7.1.0
     volumes:
-      - ./config:/root/.osmosisd/config
+      - ./config:/osmosis/.osmosisd/config
     networks:
       - osmosis
     ports:
@@ -13,7 +12,8 @@ services:
       - "1317:1317"
       - "9090:9090"
       - "9091:9091"
-    command: osmosisd start
+    command:
+      - start
 
 networks:
   osmosis:
