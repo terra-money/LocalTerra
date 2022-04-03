@@ -1,69 +1,69 @@
 {
   "mnemonics": [{
       "name": "validator",
-      "address": "terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8",
-      "pubkey": "terrapub1addwnpepqflqjs2z2l52fku85zh65cxt8ctm4yn4nk5l9xyv80jq5hvszddpck20sd0",
-      "mnemonic": "satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn"
+      "address": "osmo1l0jjmvdtj4c3f8cxzzgfhq0zhdzf2x8cgpg056",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AxJQidlFCHm2xtcY0rxY/6ApAy449ljnzA6Sg7eSvq4E"},
+      "mnemonic": "artefact coral banana cereal split tower produce topple grow tennis juice fiber health easy song vessel uncover online cycle team struggle pattern spider tomorrow"
     },
     {
       "name": "test1",
-      "address": "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-      "pubkey": "terrapub1addwnpepqgan82zjgdzqvxcjxext5g87pgdtxm2ys64lg5dm0n4az84zys09kyqtavw",
-      "mnemonic": "notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
+      "address": "osmo13wywdhs4pu605ra7f85aczcnmfhdu4xfrphlyp",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A8pZbAT3gCVe6muCa9TO6uLnDJ2si/F++4PZf5ylPzFC"},
+      "mnemonic": "salad lecture coach machine enough suffer cost nut gaze clever dismiss castle sustain armed display scheme forget gasp mutual alarm miracle online tomato nature"
     },
     {
       "name": "test2",
-      "address": "terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
-      "pubkey": "terrapub1addwnpepqdw9s9agjmw4fgntfuytd2x7qha94zlvv0edntkt7g3amz4wg75ewy9755w",
-      "mnemonic": "quality vacuum heart guard buzz spike sight swarm shove special gym robust assume sudden deposit grid alcohol choice devote leader tilt noodle tide penalty"
+      "address": "osmo13vzhfxds5sflq2hsq77z3clztkdxs30mwza78s",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A1d6p+dM+XcLtDt4jpGxYte0qvejeY51iBGQlyAjh0XH"},
+      "mnemonic": "multiply panel hole remind flush chapter scan true one fancy cable combine venture wagon nose fatal there toast middle prison lumber tail empower current"
     },
     {
       "name": "test3",
-      "address": "terra1757tkx08n0cqrw7p86ny9lnxsqeth0wgp0em95",
-      "pubkey": "terrapub1addwnpepqgcxazmq6wgt2j4rdfumsfwla0zfk8e5sws3p3zg5dkm9007hmfysxas0u2",
-      "mnemonic": "symbol force gallery make bulk round subway violin worry mixture penalty kingdom boring survey tool fringe patrol sausage hard admit remember broken alien absorb"
+      "address": "osmo19fzuy7e8cy8y4v9dv6gv0xtpdpqt530sf8ctn9",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AovJ7UZqAvde03roltcloC73tvQFgIafqquJ2t2lXCmh"},
+      "mnemonic": "caught dad suit staff come pause trigger bleak economy ostrich food crawl taxi wrong day damage alpha deer humble fault debate they excite scrub"
     },
     {
       "name": "test4",
-      "address": "terra199vw7724lzkwz6lf2hsx04lrxfkz09tg8dlp6r",
-      "pubkey": "terrapub1addwnpepq0twklwp80hpeufr9f5k8a0lwr4kt5t7pzdl65x9ctka8uumpgyxjmq748f",
-      "mnemonic": "bounce success option birth apple portion aunt rural episode solution hockey pencil lend session cause hedgehog slender journey system canvas decorate razor catch empty"
+      "address": "osmo12jlcxnyh0gxjtvy4cdxlwqggw39w5dhg7wq8gh",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A7qFK61h5inH4oWnm7DEMtR7d+gwhHbrs+ryKcltBbs2"},
+      "mnemonic": "flavor receive field puppy mesh tired tone long venture bright truck detail goose they fan slush cram fix gold hire midnight cannon kiwi quit"
     },
     {
       "name": "test5",
-      "address": "terra18wlvftxzj6zt0xugy2lr9nxzu402690ltaf4ss",
-      "pubkey": "terrapub1addwnpepq2dc0x07vtc5ds3fw08m392mw2wea4muglnd2demf84h0jclyf72xyzgrdq",
-      "mnemonic": "second render cat sing soup reward cluster island bench diet lumber grocery repeat balcony perfect diesel stumble piano distance caught occur example ozone loyal"
+      "address": "osmo1gp5yl0x8dcj42xmx7hyjp7j5fwe788ht4keanc",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A6FEl2gAY1PrJnuj6Hn95NUHx+A4oWiUfdFSL+fn2MzR"},
+      "mnemonic": "require lemon mechanic forward team maid kiss escape combine wrist resource jealous spring police couple design fork era lunar crunch resist differ size lounge"
     },
     {
       "name": "test6",
-      "address": "terra1e8ryd9ezefuucd4mje33zdms9m2s90m57878v9",
-      "pubkey": "terrapub1addwnpepqgf9e8p3sjj7w8tc5vhz685satqz8fxlq05xu52ykgemjm3tl2l37xj0qdx",
-      "mnemonic": "spatial forest elevator battle also spoon fun skirt flight initial nasty transfer glory palm drama gossip remove fan joke shove label dune debate quick"
+      "address": "osmo1hrt9t9wc7q6htgq3xhss4g9txxn9mchgd5jf0c",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A0AwM2h3CTLep4o/VIx10UvArP9JRGnj8Uy04h7DxEbw"},
+      "mnemonic": "churn long tragic robust under surprise eyebrow whale guilt aerobic bronze again tank cash runway lucky resemble tobacco idea turn ice express churn acoustic"
     },
     {
       "name": "test7",
-      "address": "terra17tv2hvwpg0ukqgd2y5ct2w54fyan7z0zxrm2f9",
-      "pubkey": "terrapub1addwnpepqd2a3l2sfzl75ym7ej5xg0h07y9f393vnj4ud8jjs8swnkf90qh0y4zujvh",
-      "mnemonic": "noble width taxi input there patrol clown public spell aunt wish punch moment will misery eight excess arena pen turtle minimum grain vague inmate"
+      "address": "osmo1axxc8sswmvwd5q3hgq6upz9dejj8qadsgw5g53",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AniJtHZJ2MqOdDWMjdMGDK5sEjo5KTGxZsjjtZw0WroU"},
+      "mnemonic": "miss middle hover receive weather roof swap lava luxury cloud focus stadium wage hover all purity omit flush message lend fiscal choose rug simple"
     },
     {
       "name": "test8",
-      "address": "terra1lkccuqgj6sjwjn8gsa9xlklqv4pmrqg9dx2fxc",
-      "pubkey": "terrapub1addwnpepqg0emd34d0k4xmdqfps8rme7p5c4lhpg0k5egfxumytfklw04mesc2kpzlg",
-      "mnemonic": "cream sport mango believe inhale text fish rely elegant below earth april wall rug ritual blossom cherry detail length blind digital proof identify ride"
+      "address": "osmo1hguhwtag9tfsva0n2ejugkhm48txu20eql882z",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AtlivxwPsXZhWKw05tg9340EgvPAntI5AaJioTK4nuK9"},
+      "mnemonic": "april current put adjust point move moment soap hood sun flavor hurdle venue mushroom acquire squeeze win coffee draft urge path roast flame close"
     },
     {
       "name": "test9",
-      "address": "terra1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f",
-      "pubkey": "terrapub1addwnpepq0a9ks8fnqjn0cllypeggdu50eeww68h7at6jwzfkvq60pgnare2y73jcl8",
-      "mnemonic": "index light average senior silent limit usual local involve delay update rack cause inmate wall render magnet common feature laundry exact casual resource hundred"
+      "address": "osmo1g44fj3swmf3muzh8rd72ffr7pqld8jasu2fmc7",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AkW4UsrQ0h1qTilzoJbIluU9wWLNS6EnNXopkJwIFrkQ"},
+      "mnemonic": "average walnut harbor fan arrive culture area night quote wrong magnet depend scene merit blast result paddle original version prefer ice ecology across trigger"
     },
     {
       "name": "test10",
-      "address": "terra1fmcjjt6yc9wqup2r06urnrd928jhrde6gcld6n",
-      "pubkey": "terrapub1addwnpepqw5l3ax2du5lxhquwquwv5dufvp8kmk4aewz7kg8cujdv55mh936j36ex2c",
-      "mnemonic": "prefer forget visit mistake mixture feel eyebrow autumn shop pair address airport diesel street pass vague innocent poem method awful require hurry unhappy shoulder"
+      "address": "osmo1etkjkyrknvue3w6mlv76c6dhm3e00q5xvz5p4c",
+      "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"ArHUz1jJF3VwBcTelZ5hhVYeX8joo4fWnpcLkAx2OaVO"},
+      "mnemonic": "control print cruise room rocket excuse lawsuit sniff awake valley achieve cement casino arm produce rubber panda online van loyal myth chaos enact aspect"
     }
   ]
 }

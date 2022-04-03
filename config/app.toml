@@ -8,17 +8,18 @@
 # The minimum gas prices a validator is willing to accept for processing a
 # transaction. A transaction's fees must meet the minimum of any denomination
 # specified in this config (e.g. 0.25token1;0.0001token2).
-minimum-gas-prices = "0.01133uluna,0.15uusd,0.104938usdr,169.77ukrw,428.571umnt,0.125ueur,0.98ucny,16.37ujpy,0.11ugbp,10.88uinr,0.19ucad,0.14uchf,0.19uaud,0.2usgd,4.62uthb,1.25usek"
+minimum-gas-prices = "0uosmo"
 
-# default: the last 100 states are kept in addition to every 500th state; pruning at 10 block intervals
+# default: only the last 100,000 states(approximately 1 week worth of state) are kept; pruning at 100 block intervals
 # nothing: all historic states will be saved, nothing will be deleted (i.e. archiving node)
-# everything: all saved states will be deleted, storing only the current state; pruning at 10 block intervals
-# custom: allow pruning options to be manually specified through 'pruning-keep-recent', 'pruning-keep-every', and 'pruning-interval'
+# everything: 10 latest states will be kept; pruning at 10 block intervals.
+# custom: allow pruning options to be manually specified through 'pruning-keep-recent', and 'pruning-interval'
 pruning = "default"
 
 # These are applied if and only if the pruning strategy is custom.
+# pruning-keep-recent = N means keep all of the last N states
 pruning-keep-recent = "0"
-pruning-keep-every = "0"
+# pruning-interval = N means we delete old states from disk every Nth block.
 pruning-interval = "0"
 
 # HaltHeight contains a non-zero block height at which a node will gracefully
@@ -44,7 +45,7 @@ halt-time = 0
 # It has no bearing on application state pruning which is determined by the
 # "pruning-*" configurations.
 #
-# Note: Tendermint block pruning is dependant on this parameter in conjunction
+# Note: Tendermint block pruning is dependant on this parameter in conunction
 # with the unbonding (safety threshold) period, state pruning and state sync
 # snapshot parameters to determine the correct minimum value of
 # ResponseCommit.RetainHeight.
@@ -59,6 +60,10 @@ inter-block-cache = true
 # Example:
 # ["message.sender", "message.recipient"]
 index-events = []
+
+# IavlCacheSize set the size of the iavl tree cache. 
+# Default cache size is 50mb.
+iavl-cache-size = 781250
 
 ###############################################################################
 ###                         Telemetry Configuration                         ###
@@ -104,7 +109,7 @@ global-labels = [
 enable = true
 
 # Swagger defines if swagger documentation should automatically be registered.
-swagger = true
+swagger = false
 
 # Address defines the API server to listen on.
 address = "tcp://0.0.0.0:1317"
@@ -116,13 +121,13 @@ max-open-connections = 1000
 rpc-read-timeout = 10
 
 # RPCWriteTimeout defines the Tendermint RPC write timeout (in seconds).
-rpc-write-timeout = 30
+rpc-write-timeout = 0
 
 # RPCMaxBodyBytes defines the Tendermint maximum response body (in bytes).
 rpc-max-body-bytes = 1000000
 
 # EnableUnsafeCORS defines if CORS should be enabled (unsafe - use it at your own risk).
-enabled-unsafe-cors = true
+enabled-unsafe-cors = false
 
 ###############################################################################
 ###                           Rosetta Configuration                         ###
@@ -174,7 +179,7 @@ enable = true
 address = "0.0.0.0:9091"
 
 # EnableUnsafeCORS defines if CORS should be enabled (unsafe - use it at your own risk).
-enable-unsafe-cors = true
+enable-unsafe-cors = false
 
 ###############################################################################
 ###                        State Sync Configuration                         ###
@@ -185,20 +190,25 @@ enable-unsafe-cors = true
 [state-sync]
 
 # snapshot-interval specifies the block interval at which local state sync snapshots are
-# taken (0 to disable). Must be a multiple of pruning-keep-every.
+# taken (0 to disable).
 snapshot-interval = 0
 
 # snapshot-keep-recent specifies the number of recent snapshots to keep and serve (0 to keep all).
 snapshot-keep-recent = 2
 
-[wasm]
-# The maximum gas amount can be spent for contract query.
-# The contract query will invoke contract execution vm,
-# so we need to restrict the max usage to prevent DoS attack
-contract-query-gas-limit = "3000000"
+###############################################################################
+###                      Osmosis Mempool Configuration                      ###
+###############################################################################
 
-# The flag to specify whether print contract logs or not
-contract-debug-mode = "false"
+[osmosis-mempool]
+# This is the max allowed gas any tx. 
+# This is only for local mempool purposes, and thus	is only ran on check tx.
+max-gas-wanted-per-tx = "25000000"
 
-# The WASM VM memory cache size in MiB not bytes
-contract-memory-cache-size = "500"
+# This is the minimum gas fee any arbitrage tx should have, denominated in uosmo per gas
+# Default value of ".005" then means that a tx with 1 million gas costs (.005 uosmo/gas) * 1_000_000 gas = .005 osmo
+arbitrage-min-gas-fee = ".005"
+
+# This is the minimum gas fee any tx with high gas demand should have, denominated in uosmo per gas
+# Default value of ".0025" then means that a tx with 1 million gas costs (.0025 uosmo/gas) * 1_000_000 gas = .0025 osmo
+min-gas-price-for-high-gas-tx = ".0025"

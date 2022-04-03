@@ -1,6 +1,6 @@
 {
-  "genesis_time": "2021-05-26T10:02:06.396784Z",
-  "chain_id": "localterra",
+  "genesis_time": "2022-04-03T03:46:02.600495411Z",
+  "chain_id": "localosmosis",
   "initial_height": "1",
   "consensus_params": {
     "block": {
@@ -33,77 +33,77 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8",
+          "address": "osmo1l0jjmvdtj4c3f8cxzzgfhq0zhdzf2x8cgpg056",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+          "address": "osmo13wywdhs4pu605ra7f85aczcnmfhdu4xfrphlyp",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+          "address": "osmo13vzhfxds5sflq2hsq77z3clztkdxs30mwza78s",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra1757tkx08n0cqrw7p86ny9lnxsqeth0wgp0em95",
+          "address": "osmo19fzuy7e8cy8y4v9dv6gv0xtpdpqt530sf8ctn9",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra199vw7724lzkwz6lf2hsx04lrxfkz09tg8dlp6r",
+          "address": "osmo12jlcxnyh0gxjtvy4cdxlwqggw39w5dhg7wq8gh",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra18wlvftxzj6zt0xugy2lr9nxzu402690ltaf4ss",
+          "address": "osmo1gp5yl0x8dcj42xmx7hyjp7j5fwe788ht4keanc",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra1e8ryd9ezefuucd4mje33zdms9m2s90m57878v9",
+          "address": "osmo1hrt9t9wc7q6htgq3xhss4g9txxn9mchgd5jf0c",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra17tv2hvwpg0ukqgd2y5ct2w54fyan7z0zxrm2f9",
+          "address": "osmo1axxc8sswmvwd5q3hgq6upz9dejj8qadsgw5g53",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra1lkccuqgj6sjwjn8gsa9xlklqv4pmrqg9dx2fxc",
+          "address": "osmo1hguhwtag9tfsva0n2ejugkhm48txu20eql882z",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f",
+          "address": "osmo1g44fj3swmf3muzh8rd72ffr7pqld8jasu2fmc7",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "terra1fmcjjt6yc9wqup2r06urnrd928jhrde6gcld6n",
+          "address": "osmo1etkjkyrknvue3w6mlv76c6dhm3e00q5xvz5p4c",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
@@ -120,318 +120,182 @@
       },
       "balances": [
         {
-          "address": "terra199vw7724lzkwz6lf2hsx04lrxfkz09tg8dlp6r",
+          "address": "osmo19fzuy7e8cy8y4v9dv6gv0xtpdpqt530sf8ctn9",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+          "address": "osmo1gp5yl0x8dcj42xmx7hyjp7j5fwe788ht4keanc",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra18wlvftxzj6zt0xugy2lr9nxzu402690ltaf4ss",
+          "address": "osmo1g44fj3swmf3muzh8rd72ffr7pqld8jasu2fmc7",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra1fmcjjt6yc9wqup2r06urnrd928jhrde6gcld6n",
+          "address": "osmo12jlcxnyh0gxjtvy4cdxlwqggw39w5dhg7wq8gh",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8",
+          "address": "osmo13vzhfxds5sflq2hsq77z3clztkdxs30mwza78s",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f",
+          "address": "osmo13wywdhs4pu605ra7f85aczcnmfhdu4xfrphlyp",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra1e8ryd9ezefuucd4mje33zdms9m2s90m57878v9",
+          "address": "osmo1hrt9t9wc7q6htgq3xhss4g9txxn9mchgd5jf0c",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra17tv2hvwpg0ukqgd2y5ct2w54fyan7z0zxrm2f9",
+          "address": "osmo1hguhwtag9tfsva0n2ejugkhm48txu20eql882z",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra1757tkx08n0cqrw7p86ny9lnxsqeth0wgp0em95",
+          "address": "osmo1etkjkyrknvue3w6mlv76c6dhm3e00q5xvz5p4c",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+          "address": "osmo1axxc8sswmvwd5q3hgq6upz9dejj8qadsgw5g53",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         },
         {
-          "address": "terra1lkccuqgj6sjwjn8gsa9xlklqv4pmrqg9dx2fxc",
+          "address": "osmo1l0jjmvdtj4c3f8cxzzgfhq0zhdzf2x8cgpg056",
           "coins": [
             {
-              "denom": "ueur",
-              "amount": "10000000000000000"
+              "denom": "uion",
+              "amount": "100000000000"
             },
             {
-              "denom": "ukrw",
-              "amount": "1000000000000000000"
-            },
-            {
-              "denom": "uluna",
-              "amount": "1000000000000000"
-            },
-            {
-              "denom": "usdr",
-              "amount": "10000000000000000"
-            },
-            {
-              "denom": "uusd",
-              "amount": "10000000000000000"
+              "denom": "uosmo",
+              "amount": "100000000000"
             }
           ]
         }
       ],
-      "supply": [
-        {
-          "denom": "ueur",
-          "amount": "110000000000000000"
-        },
-        {
-          "denom": "ukrw",
-          "amount": "11000000000000000000"
-        },
-        {
-          "denom": "uluna",
-          "amount": "11000000000000000"
-        },
-        {
-          "denom": "usdr",
-          "amount": "110000000000000000"
-        },
-        {
-          "denom": "uusd",
-          "amount": "110000000000000000"
-        }
-      ],
+      "supply": [],
       "denom_metadata": []
+    },
+    "bech32ibc": {
+      "nativeHRP": "osmo",
+      "hrpIBCRecords": []
     },
     "capability": {
       "index": "1",
       "owners": []
     },
+    "claim": {
+      "module_account_balance": {
+        "denom": "uosmo",
+        "amount": "0"
+      },
+      "params": {
+        "airdrop_start_time": "0001-01-01T00:00:00Z",
+        "duration_until_decay": "3600s",
+        "duration_of_decay": "18000s",
+        "claim_denom": "uosmo"
+      },
+      "claim_records": []
+    },
     "crisis": {
       "constant_fee": {
-        "denom": "uluna",
+        "denom": "uosmo",
         "amount": "1000"
       }
     },
     "distribution": {
       "params": {
-        "community_tax": "0.000000000000000000",
+        "community_tax": "0.020000000000000000",
         "base_proposer_reward": "0.010000000000000000",
         "bonus_proposer_reward": "0.040000000000000000",
         "withdraw_addr_enabled": true
@@ -448,11 +312,42 @@
       "delegator_starting_infos": [],
       "validator_slash_events": []
     },
+    "epochs": {
+      "epochs": [
+        {
+          "identifier": "week",
+          "start_time": "0001-01-01T00:00:00Z",
+          "duration": "604800s",
+          "current_epoch": "0",
+          "current_epoch_start_time": "0001-01-01T00:00:00Z",
+          "epoch_counting_started": false,
+          "current_epoch_start_height": "0"
+        },
+        {
+          "identifier": "day",
+          "start_time": "0001-01-01T00:00:00Z",
+          "duration": "60s",
+          "current_epoch": "0",
+          "current_epoch_start_time": "0001-01-01T00:00:00Z",
+          "epoch_counting_started": false,
+          "current_epoch_start_height": "0"
+        }
+      ]
+    },
     "evidence": {
       "evidence": []
     },
-    "feegrant": {
-      "allowances": []
+    "gamm": {
+      "pools": [],
+      "next_pool_number": "1",
+      "params": {
+        "pool_creation_fee": [
+          {
+            "denom": "uosmo",
+            "amount": "1000000000"
+          }
+        ]
+      }
     },
     "genutil": {
       "gen_txs": [
@@ -462,7 +357,7 @@
               {
                 "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
                 "description": {
-                  "moniker": "localterra",
+                  "moniker": "localosmosis",
                   "identity": "",
                   "website": "",
                   "security_contact": "",
@@ -474,19 +369,19 @@
                   "max_change_rate": "0.010000000000000000"
                 },
                 "min_self_delegation": "1",
-                "delegator_address": "terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8",
-                "validator_address": "terravaloper1dcegyrekltswvyy0xy69ydgxn9x8x32zdy3ua5",
+                "delegator_address": "osmo1l0jjmvdtj4c3f8cxzzgfhq0zhdzf2x8cgpg056",
+                "validator_address": "osmovaloper1l0jjmvdtj4c3f8cxzzgfhq0zhdzf2x8cjkqvra",
                 "pubkey": {
                   "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "/zGmkgCWRFsJLETAzlzYsbu7EHS5HWpaSyR22rlFM68="
+                  "key": "xHEc+5ELrDhi7nqmSAMiTnxd0T4sQakp09/aEmrCoMw="
                 },
                 "value": {
-                  "denom": "uluna",
-                  "amount": "1000000"
+                  "denom": "uosmo",
+                  "amount": "500000000"
                 }
               }
             ],
-            "memo": "62cd922a9d9349e790247dadd1e32947450502fb@10.10.20.74:26656",
+            "memo": "270a37ce61800fbcb4dc30bc1957cc449e3cd5fb@143.198.59.255:26656",
             "timeout_height": "0",
             "extension_options": [],
             "non_critical_extension_options": []
@@ -496,7 +391,7 @@
               {
                 "public_key": {
                   "@type": "/cosmos.crypto.secp256k1.PubKey",
-                  "key": "An4JQUJX6KTbh6CvqmDLPhe6knWdqfKYjDvkCl2QE1oc"
+                  "key": "AxJQidlFCHm2xtcY0rxY/6ApAy449ljnzA6Sg7eSvq4E"
                 },
                 "mode_info": {
                   "single": {
@@ -508,13 +403,13 @@
             ],
             "fee": {
               "amount": [],
-              "gas_limit": "200000",
+              "gas_limit": "350000",
               "payer": "",
               "granter": ""
             }
           },
           "signatures": [
-            "Xb9hjzkSJus9X6scrJO2RbC2jWie7oMst6bWQuvDBrwFeTXTM7YZD4B6YyOaHep9VRQHONDl3iZqeM1oYw8PQA=="
+            "opNgntPiDpPRqycsjLbUAxPT1QlQf0/XP8YrS15YbQdJzSVSUSPkrriVK9cX1IsMvW9E6iUWQzEJer6UVmaErw=="
           ]
         }
       ]
@@ -527,14 +422,14 @@
       "deposit_params": {
         "min_deposit": [
           {
-            "denom": "uluna",
+            "denom": "uosmo",
             "amount": "10000000"
           }
         ],
-        "max_deposit_period": "300s"
+        "max_deposit_period": "172800s"
       },
       "voting_params": {
-        "voting_period": "300s"
+        "voting_period": "60s"
       },
       "tally_params": {
         "quorum": "0.334000000000000000",
@@ -559,7 +454,10 @@
       "connection_genesis": {
         "connections": [],
         "client_connection_paths": [],
-        "next_connection_sequence": "0"
+        "next_connection_sequence": "0",
+        "params": {
+          "max_expected_time_per_block": "30000000000"
+        }
       },
       "channel_genesis": {
         "channels": [],
@@ -572,63 +470,60 @@
         "next_channel_sequence": "0"
       }
     },
-    "market": {
+    "incentives": {
       "params": {
-        "base_pool": "7000000000000.000000000000000000",
-        "pool_recovery_period": "200",
-        "min_stability_spread": "0.005000000000000000"
-      }
+        "distr_epoch_identifier": "day"
+      },
+      "gauges": [],
+      "lockable_durations": [
+        "1s",
+        "120s",
+        "180s",
+        "240s"
+      ],
+      "last_gauge_id": "0"
+    },
+    "lockup": {
+      "last_lock_id": "0",
+      "locks": [],
+      "synthetic_locks": []
     },
     "mint": {
       "minter": {
-        "inflation": "0.130000000000000000",
-        "annual_provisions": "0.000000000000000000"
+        "epoch_provisions": "0.000000000000000000"
       },
       "params": {
-        "mint_denom": "uluna",
-        "inflation_rate_change": "0.000000000000000000",
-        "inflation_max": "0.200000000000000000",
-        "inflation_min": "0.070000000000000000",
-        "goal_bonded": "0.670000000000000000",
-        "blocks_per_year": "6311520"
-      }
-    },
-    "oracle": {
-      "params": {
-        "vote_period": "5",
-        "vote_threshold": "0.500000000000000000",
-        "reward_band": "0.020000000000000000",
-        "reward_distribution_window": "5256000",
-        "whitelist": [
-          {
-            "name": "ukrw",
-            "tobin_tax": "0.002500000000000000"
-          },
-          {
-            "name": "usdr",
-            "tobin_tax": "0.002500000000000000"
-          },
-          {
-            "name": "uusd",
-            "tobin_tax": "0.002500000000000000"
-          },
-          {
-            "name": "ueur",
-            "tobin_tax": "0.002500000000000000"
-          }
-        ],
-        "slash_fraction": "0.000100000000000000",
-        "slash_window": "100800",
-        "min_valid_per_window": "0.050000000000000000"
+        "mint_denom": "uosmo",
+        "genesis_epoch_provisions": "5000000.000000000000000000",
+        "epoch_identifier": "day",
+        "reduction_period_in_epochs": "156",
+        "reduction_factor": "0.500000000000000000",
+        "distribution_proportions": {
+          "staking": "0.400000000000000000",
+          "pool_incentives": "0.300000000000000000",
+          "developer_rewards": "0.200000000000000000",
+          "community_pool": "0.100000000000000000"
+        },
+        "weighted_developer_rewards_receivers": [],
+        "minting_rewards_distribution_start_epoch": "0"
       },
-      "feeder_delegations": [],
-      "exchange_rates": [],
-      "miss_counters": [],
-      "aggregate_exchange_rate_prevotes": [],
-      "aggregate_exchange_rate_votes": [],
-      "tobin_taxes": []
+      "halven_started_epoch": "0"
     },
     "params": null,
+    "poolincentives": {
+      "params": {
+        "minted_denom": "uosmo"
+      },
+      "lockable_durations": [
+        "120s",
+        "180s",
+        "240s"
+      ],
+      "distr_info": {
+        "total_weight": "0",
+        "records": []
+      }
+    },
     "slashing": {
       "params": {
         "signed_blocks_window": "100",
@@ -642,11 +537,12 @@
     },
     "staking": {
       "params": {
-        "unbonding_time": "600s",
+        "unbonding_time": "240s",
         "max_validators": 100,
         "max_entries": 7,
         "historical_entries": 10000,
-        "bond_denom": "uluna"
+        "bond_denom": "uosmo",
+        "min_commission_rate": "0.000000000000000000"
       },
       "last_total_power": "0",
       "last_validator_powers": [],
@@ -656,6 +552,15 @@
       "redelegations": [],
       "exported": false
     },
+    "superfluid": {
+      "params": {
+        "minimum_risk_factor": "0.500000000000000000"
+      },
+      "superfluid_assets": [],
+      "osmo_equivalent_multipliers": [],
+      "intermediary_accounts": [],
+      "intemediary_account_connections": []
+    },
     "transfer": {
       "port_id": "transfer",
       "denom_traces": [],
@@ -664,51 +569,25 @@
         "receive_enabled": true
       }
     },
-    "treasury": {
-      "params": {
-        "tax_policy": {
-          "rate_min": "0.000000000000000000",
-          "rate_max": "0.000000000000000000",
-          "cap": {
-            "denom": "usdr",
-            "amount": "0"
-          },
-          "change_rate_max": "0.000000000000000000"
-        },
-        "reward_policy": {
-          "rate_min": "0.000000000000000000",
-          "rate_max": "1.000000000000000000",
-          "cap": {
-            "denom": "unused",
-            "amount": "0"
-          },
-          "change_rate_max": "0.000000000000000000"
-        },
-        "seigniorage_burden_target": "0.670000000000000000",
-        "mining_increment": "1.070000000000000000",
-        "window_short": "4",
-        "window_long": "52",
-        "window_probation": "12"
-      },
-      "tax_rate": "0.000000000000000000",
-      "reward_weight": "0.050000000000000000",
-      "tax_caps": [],
-      "tax_proceeds": [],
-      "epoch_initial_issuance": [],
-      "epoch_states": []
+    "txfees": {
+      "basedenom": "uosmo",
+      "feetokens": []
     },
     "upgrade": {},
-    "vesting": null,
+    "vesting": {},
     "wasm": {
       "params": {
-        "max_contract_size": "614400",
-        "max_contract_gas": "20000000",
-        "max_contract_msg_size": "4096"
+        "code_upload_access": {
+          "permission": "Everybody",
+          "address": ""
+        },
+        "instantiate_default_permission": "Everybody",
+        "max_wasm_code_size": "1228800"
       },
-      "last_code_id": "0",
-      "last_instance_id": "0",
       "codes": [],
-      "contracts": []
+      "contracts": [],
+      "sequences": [],
+      "gen_msgs": []
     }
   }
 }

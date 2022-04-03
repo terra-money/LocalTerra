@@ -6,7 +6,7 @@
 ###############################################################################
 
 # The network chain ID
-chain-id = "localterra"
+chain-id = "localosmosis"
 # The keyring's backend, where the keys are stored (os|file|kwallet|pass|test|memory)
 keyring-backend = "os"
 # CLI output format (text|json)
