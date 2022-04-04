@@ -3,8 +3,10 @@ version: "3"
 services:
   osmosisd:
     image: osmolabs/osmosis:7.1.0
+    user: "${UID}:${GID}"
     volumes:
       - ./config:/osmosis/.osmosisd/config
+      - ./data:/osmosis/.osmosisd/data
     networks:
       - osmosis
     ports:
