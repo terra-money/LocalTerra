@@ -7,16 +7,6 @@ services:
     volumes:
       - ./config:/osmosis/.osmosisd/config
       - ./data:/osmosis/.osmosisd/data
-    networks:
-      - osmosis
-    ports:
-      - "26657:26657"
-      - "1317:1317"
-      - "9090:9090"
-      - "9091:9091"
     command:
       - start
-
-networks:
-  osmosis:
-    driver: bridge
+    network_mode: host
