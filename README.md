@@ -1,21 +1,10 @@
-<p>&nbsp;</p>
-<p align="center">
-<img src="https://raw.githubusercontent.com/terra-money/LocalTerra/master/img/localterra_logo_with_name.svg" width=500>
-</p>
+## What is LocalOsmosis?
 
-<p align="center">
-An instant, zero-config Terra blockchain and ecosystem.
-</p>
+LocalOsmosis (a fork of LocalTerra) is a complete Osmosis testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file. It simplifies the way smart-contract developers test their contracts in a sandbox before they deploy them on a testnet or mainnet.
 
-<br/>
+LocalOsmosis comes preconfigured with opinionated, sensible defaults for standard testing environments. If other projects mention testing on LocalOsmosis, they are referring to the settings defined in this repo.
 
-## What is LocalTerra?
-
-LocalTerra is a complete Terra testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file. It simplifies the way smart-contract developers test their contracts in a sandbox before they deploy them on a testnet or mainnet.
-
-LocalTerra comes preconfigured with opinionated, sensible defaults for standard testing environments. If other projects mention testing on LocalTerra, they are referring to the settings defined in this repo.
-
-LocalTerra has the following advantages over a public testnet:
+LocalOsmosis has the following advantages over a public testnet:
 
 - Easily modifiable world states
 - Quick to reset for rapid iterations
@@ -25,39 +14,46 @@ LocalTerra has the following advantages over a public testnet:
 ## Prerequisites
 
 - [Docker](https://www.docker.com/)
+```
+sudo apt-get remove docker docker-engine docker.io
+sudo apt-get update
+sudo apt install docker.io -y
+```
 - [`docker-compose`](https://github.com/docker/compose)
+```
+sudo apt install docker-compose -y
+```
+- [Osmosisd](https://get.osmosis.zone)
+  * We will be using osmosisd outside of the Docekr container in order to easily communicate with the local network
 - Supported known architecture: x86_64
-- 16+ GB of RAM is recommended (for 8+ GB, [Bombay testnet](https://docs.terra.money/docs/develop/dapp/quick-start/using-terrain-testnet.html) is recommended)
+- 16+ GB of RAM is recommended
 
-## Install LocalTerra
+## Install LocalOsmosis
 
 1. Run the following commands::
 
 ```sh
-$ git clone --depth 1 https://www.github.com/terra-money/LocalTerra
-$ cd LocalTerra
+git clone https://github.com/czarcas7ic/LocalOsmosis.git
+cd LocalOsmosis
 ```
 
 2. Make sure your Docker daemon is running in the background and [`docker-compose`](https://github.com/docker/compose) is installed.
 
-## Start, stop, and reset LocalTerra
+## Start, stop, and reset LocalOsmosis
 
-- Start LocalTerra:
+- Start LocalOsmosis:
 
 ```sh
-$ docker-compose up
+docker-compose up
 ```
 
 Your environment now contains:
 
-- [terrad](http://github.com/terra-money/core) RPC node running on `tcp://localhost:26657`
+- [osmosisd](http://github.com/osmosis-labs/osmosis) RPC node running on `tcp://localhost:26657`
 - LCD running on http://localhost:1317
-- [FCD](http://www.github.com/terra-money/fcd) running on http://localhost:3060
-- An oracle feeder feeding live prices from mainnet, trailing by one vote period
 
 
-
-Stop LocalTerra:
+Stop LocalOsmosis:
 
 ```sh
 $ docker-compose stop
@@ -71,68 +67,38 @@ $ docker-compose rm
 
 ## Integrations
 
-You can integrate LocalTerra in Terra Station, `terrad`, and the Terra JavaScript and Python SDKs.
+You can integrate LocalOsmosis in Terra Station, `terrad`, and the Terra JavaScript and Python SDKs.
 
-### Terra Station
+### osmosisd
 
-Terra Station has built-in support for LocalTerra so that you can quickly and easily interact with it. Open Station, and switch to the `Localterra` network, as shown in the following image
+1. Ensure the same version of `osmosisd` and LocalOsmosis are installed.
 
-![station_localterra](./img/station-localterra.png)
-
-### terrad
-
-**Important:** 'terracli' has been deprecated, and all of its functionalities are merged into 'terrad'.
-
-1. Ensure the same version of `terrad` and LocalTerra are installed.
-
-2. Use `terrad` to talk to your LocalTerra `terrad` node:
+2. Use `osmosisd` to talk to your LocalOsmosis `osmosisd` node:
 
 ```sh
-$ terrad status
+osmosisd status
 ```
 
-This command automatically works because `terrad` connects to `localhost:26657` by default.
+This command automatically works because `osmosisd` connects to `localhost:26657` by default.
 
 The following command is the explicit form:
 ```sh
-$ terrad status --node=tcp://localhost:26657
+osmosisd status --node=tcp://localhost:26657
 ```
 
-3. Run any of the `terrad` commands against your LocalTerra network, as shown in the following example:
+3. Run any of the `osmosisd` commands against your LocalOsmosis network, as shown in the following example:
 
 ```sh
-$ terrad query account terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8
+osmosisd query account osmo1l0jjmvdtj4c3f8cxzzgfhq0zhdzf2x8cgpg056
 ```
 
-### Terra SDK for Python
+## Configure LocalOsmosis
 
-Connect to the chain through LocalTerra's LCD server:
+The majority of LocalOsmosis is implemented through a `docker-compose.yml` file, making it easily customizable. You can use LocalOsmosis as a starting template point for setting up your own local Osmosis testnet with Docker containers.
 
-```python
-from terra_sdk.client.lcd import LCDClient
-terra = LCDClient("localterra", "http://localhost:1317")
-```
+Out of the box, LocalOsmosis comes preconfigured with opinionated settings such as:
 
-### Terra SDK for JavaScript
-
-Connect to the chain through LocalTerra's LCD server:
-
-```ts
-import { LCDClient } from "@terra-money/terra.js";
-
-const terra = new LCDClient({
-  URL: "http://localhost:1317",
-  chainID: "localterra",
-});
-```
-
-## Configure LocalTerra
-
-The majority of LocalTerra is implemented through a `docker-compose.yml` file, making it easily customizable. You can use LocalTerra as a starting template point for setting up your own local Terra testnet with Docker containers.
-
-Out of the box, LocalTerra comes preconfigured with opinionated settings such as:
-
-- ports defined for RPC (26657), LCD (1317) and FCD (3060)
+- ports defined for RPC (26657) and LCD (1317)
 - standard [accounts](#accounts)
 
 ### Modifying node configuration
@@ -141,9 +107,7 @@ You can modify the node configuration of your validator in the `config/config.to
 
 #### Pro tip: Speed Up Block Time
 
-LocalTerra is often used alongside a script written with the Terra.js SDK or Terra Python SDK as a convenient way to do integration tests. You can greatly improve the experience by speeding up the block time.
-
-To increase block time, edit the `[consensus]` parameters in the `config/config.toml` file, and specify your own values.
+To decrease block time, edit the `[consensus]` parameters in the `config/config.toml` file, and specify your own values.
 
 The following example configures all timeouts to `200ms`:
 
@@ -174,11 +138,11 @@ sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' confi
 
 ### Modifying genesis
 
-You can change the `genesis.json` file by altering `config/genesis.json`. To load your changes, restart your LocalTerra.
+You can change the `genesis.json` file by altering `config/genesis.json`. To load your changes, restart your LocalOsmosis.
 
 ## Accounts
 
-LocalTerra is pre-configured with one validator and 10 accounts with LUNA balances.
+LocalOsmosis is pre-configured with one validator and 10 accounts with ION and OSMO balances.
 
 | Account   | Address                                                                                                  | Mnemonic                                                                                                                                                                   |
 | --------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
