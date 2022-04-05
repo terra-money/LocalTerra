@@ -183,29 +183,13 @@ LocalTerra is pre-configured with one validator and 10 accounts with LUNA balanc
 | Account   | Address                                                                                                  | Mnemonic                                                                                                                                                                   |
 | --------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | validator | `osmo1l0jjmvdtj4c3f8cxzzgfhq0zhdzf2x8cgpg056`<br/>`terravaloper1dcegyrekltswvyy0xy69ydgxn9x8x32zdy3ua5` | `artefact coral banana cereal split tower produce topple grow tennis juice fiber health easy song vessel uncover online cycle team struggle pattern spider tomorrow`                    |
-| test1     | `terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v`                                                           | `notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius`                       |
-| test2     | `terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp`                                                           | `quality vacuum heart guard buzz spike sight swarm shove special gym robust assume sudden deposit grid alcohol choice devote leader tilt noodle tide penalty`              |
-| test3     | `terra1757tkx08n0cqrw7p86ny9lnxsqeth0wgp0em95`                                                           | `symbol force gallery make bulk round subway violin worry mixture penalty kingdom boring survey tool fringe patrol sausage hard admit remember broken alien absorb`        |
-| test4     | `terra199vw7724lzkwz6lf2hsx04lrxfkz09tg8dlp6r`                                                           | `bounce success option birth apple portion aunt rural episode solution hockey pencil lend session cause hedgehog slender journey system canvas decorate razor catch empty` |
-| test5     | `terra18wlvftxzj6zt0xugy2lr9nxzu402690ltaf4ss`                                                           | `second render cat sing soup reward cluster island bench diet lumber grocery repeat balcony perfect diesel stumble piano distance caught occur example ozone loyal`        |
-| test6     | `terra1e8ryd9ezefuucd4mje33zdms9m2s90m57878v9`                                                           | `spatial forest elevator battle also spoon fun skirt flight initial nasty transfer glory palm drama gossip remove fan joke shove label dune debate quick`                  |
-| test7     | `terra17tv2hvwpg0ukqgd2y5ct2w54fyan7z0zxrm2f9`                                                           | `noble width taxi input there patrol clown public spell aunt wish punch moment will misery eight excess arena pen turtle minimum grain vague inmate`                       |
-| test8     | `terra1lkccuqgj6sjwjn8gsa9xlklqv4pmrqg9dx2fxc`                                                           | `cream sport mango believe inhale text fish rely elegant below earth april wall rug ritual blossom cherry detail length blind digital proof identify ride`                 |
-| test9     | `terra1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f`                                                           | `index light average senior silent limit usual local involve delay update rack cause inmate wall render magnet common feature laundry exact casual resource hundred`       |
-| test10    | `terra1fmcjjt6yc9wqup2r06urnrd928jhrde6gcld6n`                                                           | `prefer forget visit mistake mixture feel eyebrow autumn shop pair address airport diesel street pass vague innocent poem method awful require hurry unhappy shoulder`     |
-
-## License
-
-This software is licensed under the MIT license.
-
-© 2020 Terraform Labs, PTE.
-
-<hr/>
-
-<p>&nbsp;</p>
-<p align="center">
-    <a href="https://terra.money/"><img src="https://assets.website-files.com/611153e7af981472d8da199c/61794f2b6b1c7a1cb9444489_symbol-terra-blue.svg" align="center" width=200/></a>
-</p>
-<div align="center">
-  <sub><em>Powering the innovation of money.</em></sub>
-</div>
+| test1     | `osmo13wywdhs4pu605ra7f85aczcnmfhdu4xfrphlyp`                                                           | `salad lecture coach machine enough suffer cost nut gaze clever dismiss castle sustain armed display scheme forget gasp mutual alarm miracle online tomato nature`                       |
+| test2     | `osmo13vzhfxds5sflq2hsq77z3clztkdxs30mwza78s`                                                           | `multiply panel hole remind flush chapter scan true one fancy cable combine venture wagon nose fatal there toast middle prison lumber tail empower current`              |
+| test3     | `osmo19fzuy7e8cy8y4v9dv6gv0xtpdpqt530sf8ctn9`                                                           | `caught dad suit staff come pause trigger bleak economy ostrich food crawl taxi wrong day damage alpha deer humble fault debate they excite scrub`        |
+| test4     | `osmo12jlcxnyh0gxjtvy4cdxlwqggw39w5dhg7wq8gh`                                                           | `flavor receive field puppy mesh tired tone long venture bright truck detail goose they fan slush cram fix gold hire midnight cannon kiwi quit` |
+| test5     | `osmo1gp5yl0x8dcj42xmx7hyjp7j5fwe788ht4keanc`                                                           | `require lemon mechanic forward team maid kiss escape combine wrist resource jealous spring police couple design fork era lunar crunch resist differ size lounge`        |
+| test6     | `osmo1hrt9t9wc7q6htgq3xhss4g9txxn9mchgd5jf0c`                                                           | `churn long tragic robust under surprise eyebrow whale guilt aerobic bronze again tank cash runway lucky resemble tobacco idea turn ice express churn acoustic`                  |
+| test7     | `osmo1axxc8sswmvwd5q3hgq6upz9dejj8qadsgw5g53`                                                           | `miss middle hover receive weather roof swap lava luxury cloud focus stadium wage hover all purity omit flush message lend fiscal choose rug simple`                       |
+| test8     | `osmo1hguhwtag9tfsva0n2ejugkhm48txu20eql882z`                                                           | `april current put adjust point move moment soap hood sun flavor hurdle venue mushroom acquire squeeze win coffee draft urge path roast flame close`                 |
+| test9     | `osmo1g44fj3swmf3muzh8rd72ffr7pqld8jasu2fmc7`                                                           | `average walnut harbor fan arrive culture area night quote wrong magnet depend scene merit blast result paddle original version prefer ice ecology across trigger`       |
+| test10    | `osmo1etkjkyrknvue3w6mlv76c6dhm3e00q5xvz5p4c`                                                           | `control print cruise room rocket excuse lawsuit sniff awake valley achieve cement casino arm produce rubber panda online van loyal myth chaos enact aspect`     |
