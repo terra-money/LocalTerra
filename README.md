@@ -1,4 +1,4 @@
-## What is LocalOsmosis?
+## What is LocalOsmosis? test
 
 LocalOsmosis (a fork of LocalTerra) is a complete Osmosis testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file. It simplifies the way smart-contract developers test their contracts in a sandbox before they deploy them on a testnet or mainnet.
 
