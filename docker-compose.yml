@@ -2,7 +2,7 @@ version: "3"
 
 services:
   terrad:
-    image: terramoney/localterra-core:2.0.0-beta.1
+    image: terramoney/localterra-core:2.0.0-rc.1
     #pull_policy: always
     volumes:
       - ./config:/root/.terra/config
@@ -30,7 +30,7 @@ services:
   #   ports:
   #     - "6379:6379"
   fcd-collector:
-    image: terramoney/fcd:2.0.0-beta.2
+    image: terramoney/fcd:2.0.0-beta.3
     depends_on:
       - terrad
       - postgres
@@ -42,7 +42,7 @@ services:
     command: collector
     restart: unless-stopped
   fcd-api:
-    image: terramoney/fcd:2.0.0-beta.2
+    image: terramoney/fcd:2.0.0-beta.3
     depends_on:
       - terrad
       - postgres
