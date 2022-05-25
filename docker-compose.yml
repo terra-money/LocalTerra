@@ -2,8 +2,8 @@ version: "3"
 
 services:
   terrad:
-    image: terramoney/localterra-core:0.5.18
-    pull_policy: always
+    image: terramoney/localterra-core:2.0.0-rc.1
+    #pull_policy: always
     volumes:
       - ./config:/root/.terra/config
     networks:
@@ -14,20 +14,8 @@ services:
       - "9090:9090"
       - "9091:9091"
     command: terrad start
-  oracle:
-    image: terramoney/pseudo-feeder:0.5.6
-    pull_policy: always
-    depends_on:
-      - terrad
-    volumes:
-      - ./config/config.toml:/app/config.toml
-    networks:
-      - terra
-    environment:
-      TESTNET_LCD_URL: http://terrad:1317
-    command: start
   postgres:
-    image: postgres:12
+    image: postgres:13
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
@@ -42,7 +30,7 @@ services:
   #   ports:
   #     - "6379:6379"
   fcd-collector:
-    image: terramoney/fcd:1.0.17
+    image: terramoney/fcd:2.0.0-beta.3
     depends_on:
       - terrad
       - postgres
@@ -54,7 +42,7 @@ services:
     command: collector
     restart: unless-stopped
   fcd-api:
-    image: terramoney/fcd:1.0.17
+    image: terramoney/fcd:2.0.0-beta.3
     depends_on:
       - terrad
       - postgres
