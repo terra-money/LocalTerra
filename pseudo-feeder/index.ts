@@ -11,7 +11,7 @@ import * as ms from "ms"
 
 const {
   MAINNET_LCD_URL = "https://lcd.terra.dev",
-  MAINNET_CHAIN_ID = "columbus-5",
+  MAINNET_CHAIN_ID = "phoenix-1",
   TESTNET_LCD_URL = "http://localhost:1317",
   TESTNET_CHAIN_ID = "localterra",
   MNEMONIC = "satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn",
