@@ -194,6 +194,24 @@ LocalTerra is pre-configured with one validator and 10 accounts with LUNA balanc
 | test9     | `terra1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f`                                                           | `index light average senior silent limit usual local involve delay update rack cause inmate wall render magnet common feature laundry exact casual resource hundred`       |
 | test10    | `terra1fmcjjt6yc9wqup2r06urnrd928jhrde6gcld6n`                                                           | `prefer forget visit mistake mixture feel eyebrow autumn shop pair address airport diesel street pass vague innocent poem method awful require hurry unhappy shoulder`     |
 
+## Contracts
+
+There are [10 contracts](https://github.com/CosmWasm/cw-plus/tree/main/contracts) already deployed on genesis:
+
+| Code Id   | Name                             | Example of already instantiated contract                           |
+| --------- | ---------------------------------|--------------------------------------------------------------------|
+| 1         | `CW1155 base`                    |                                                                    |
+| 2         | `CW1 subkeys`                    |                                                                    |
+| 3         | `CW1 whitelist`                  |                                                                    |
+| 4         | `CW1 whitelist ng`               |                                                                    |
+| 5         | `CW20 base`                      | `terra1hm4y6fzgxgu688jgf7ek66px6xkrtmn3gyk8fax3eawhp68c2d5q74k9fw` |
+| 6         | `CW20 ics20`                     |                                                                    |
+| 7         | `CW3 fixed multisig`             |                                                                    |
+| 8         | `CW3 flex multisig`              |                                                                    |
+| 9         | `CW4 group`                      |                                                                    |
+| 10        | `CW4 stake`                      |                                                                    |
+
+
 ## License
 
 This software is licensed under the MIT license.
