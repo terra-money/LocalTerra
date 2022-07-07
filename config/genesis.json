@@ -556,7 +556,7 @@
               "decimals": 6,
               "initial_balances": [
                 {
-                  "amount": "1000000",
+                  "amount": "1000000000000",
                   "address": "terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8"
                 }
               ]
