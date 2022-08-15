@@ -554,6 +554,10 @@
               "name": "Simple Token",
               "symbol": "STKN",
               "decimals": 6,
+              "mint" : {
+                "cap": "2000000000000",
+                "minter" : "terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8"
+              },
               "initial_balances": [
                 {
                   "amount": "1000000000000",
