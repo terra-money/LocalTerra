@@ -57,6 +57,3 @@ dependency-graph.png
 node_modules/
 
 logs/
-data/
-config/addrbook.json
-config/write-file-atomic*

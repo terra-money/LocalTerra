@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  terrad:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TERRA_VERSION: ${TERRA_VERSION}
+    image: ghcr.io/terra-money/localterra:${TERRA_VERSION}
+    container_name: localterra-terrad
+    hostname: terrad
+    pull_policy: always
+    volumes:
+      - localterra:/app
+    networks:
+      - localterra
+    ports:
+      - "1317:1317"
+      - "9090:9090"
+      - "9091:9091"
+      - "26657:26657"
+
+volumes:
+  localterra:
+
+networks:
+  localterra:
