@@ -57,6 +57,3 @@ dependency-graph.png
 node_modules/
 
 logs/
-terra/data/*/
-terra/config/addrbook.json
-terra/config/write-file-atomic*
