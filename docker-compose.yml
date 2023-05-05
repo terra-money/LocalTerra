@@ -1,23 +1,40 @@
-version: "3"
+version: "3.8"
+
+x-fcd-env: &fcd-env
+  - CHAIN_ID=localterra
+  - LCD_URI=http://terrad:1317
+  - RPC_URI=http://terrad:26657
+  - USE_LOG_FILE=true
+  - TYPEORM_CONNECTION=postgres
+  - TYPEORM_HOST=postgres
+  - TYPEORM_USERNAME=dev
+  - TYPEORM_PASSWORD=dev
+  - TYPEORM_DATABASE=fcd
+  - TYPEORM_SYNCHRONIZE=true
+  - TYPEORM_LOGGING=false
+  - TYPEORM_ENTITIES=src/orm/*Entity.ts
+  - LEGACY_NETWORK=false
 
 services:
   terrad:
-    image: terramoney/localterra-core:2.0.1
-    #pull_policy: always
+    image: ghcr.io/terra-money/core:2.3.1
+    container_name: localterra-terrad
+    hostname: terrad
+    pull_policy: always
     volumes:
-      - ./config:/root/.terra/config
-      - ./entrypoint.sh:/entrypoint.sh
+      - ./terra:/app
     networks:
       - terra
     ports:
-      - "26657:26657"
       - "1317:1317"
       - "9090:9090"
       - "9091:9091"
-    entrypoint: /entrypoint.sh
-    command: terrad start
+      - "26657:26657"
+
   postgres:
     image: postgres:13
+    container_name: localterra-postgres
+    hostname: postgres
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
@@ -25,26 +42,36 @@ services:
     environment:
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
+
   # redis:
   #   image: redis:latest
+  #   container_name: redis
+  #   hostname: redis
   #   networks:
   #     - terra
   #   ports:
   #     - "6379:6379"
+
+
   fcd-collector:
     image: terramoney/fcd:2.0.6
-    depends_on:
-      - terrad
-      - postgres
+    container_name: localterra-fcd-collector
+    hostname: fcd-collector
+    command: collector
+    restart: unless-stopped
     volumes:
       - ./logs:/app/logs
     networks:
       - terra
-    env_file: fcd.env
-    command: collector
-    restart: unless-stopped
+    environment: *fcd-env
+    depends_on:
+      - terrad
+      - postgres
+
   fcd-api:
     image: terramoney/fcd:2.0.6
+    container_name: localterra-fcd-api
+    hostname: fcd-api
     depends_on:
       - terrad
       - postgres
@@ -54,7 +81,7 @@ services:
       - terra
     ports:
       - 3060:3060
-    env_file: fcd.env
+    environment: *fcd-env
     command: start
 
 networks:
