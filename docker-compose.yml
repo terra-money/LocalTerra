@@ -20,5 +20,8 @@ services:
       service: fcd-api
 
 volumes:
-  terra:
+  localterra:
   pgdata:
+
+networks:
+  localterra:

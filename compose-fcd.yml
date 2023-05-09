@@ -31,6 +31,8 @@ services:
     volumes:
       - ./initdb.d:/docker-entrypoint-initdb.d
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - localterra
     ports:
       - 5433:5432
 
@@ -40,21 +42,28 @@ services:
     hostname: fcd-collector
     command: collector
     restart: unless-stopped
+    environment: *fcd-env
     volumes:
       - ./logs:/app/logs
-    environment: *fcd-env
+    networks:
+      - localterra
 
   fcd-api:
     image: ghcr.io/terra-money/fcd:${TERRA_VERSION}
     container_name: localterra-fcd-api
     hostname: fcd-api
     command: start
+    environment: *fcd-env
     volumes:
       - ./logs:/app/logs
+    networks:
+      - localterra
     ports:
       - 3060:3060
-    environment: *fcd-env
 
 volumes:
-  terra:
+  localterra:
   pgdata:
+
+networks:
+  localterra:

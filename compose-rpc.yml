@@ -12,7 +12,9 @@ services:
     hostname: terrad
     pull_policy: always
     volumes:
-      - terra:/app
+      - localterra:/app
+    networks:
+      - localterra
     ports:
       - "1317:1317"
       - "9090:9090"
@@ -20,4 +22,7 @@ services:
       - "26657:26657"
 
 volumes:
-  terra:
+  localterra:
+
+networks:
+  localterra:

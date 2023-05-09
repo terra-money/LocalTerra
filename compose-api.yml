@@ -16,3 +16,10 @@ x-api-env: &api-env
   - MANTLE_ENDPOINTS=
   - FCD_URL=http://fcd-api:3060
   - CIRCULATING_SUPPLY_COLLECT_WINDOW_BLOCKS=10
+
+volumes:
+  localterra:
+  pgdata:
+
+networks:
+  localterra:
