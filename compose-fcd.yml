@@ -23,7 +23,6 @@ services:
 
   postgres:
     image: postgres:14-alpine
-    container_name: localterra-postgres
     hostname: postgres
     environment:
       POSTGRES_USER: terra
@@ -32,38 +31,36 @@ services:
       - ./initdb.d:/docker-entrypoint-initdb.d
       - pgdata:/var/lib/postgresql/data
     networks:
-      - localterra
+      - default
     ports:
       - 5433:5432
 
-  fcd-collector:
+  fcd_collector:
     image: ghcr.io/terra-money/fcd:${TERRA_VERSION}
-    container_name: localterra-fcd-collector
-    hostname: fcd-collector
     command: collector
+    hostname: fcd_collector
     restart: unless-stopped
     environment: *fcd-env
     volumes:
       - ./logs:/app/logs
     networks:
-      - localterra
+      - default
 
-  fcd-api:
+  fcd_api:
     image: ghcr.io/terra-money/fcd:${TERRA_VERSION}
-    container_name: localterra-fcd-api
-    hostname: fcd-api
     command: start
+    hostname: fcd_api
     environment: *fcd-env
     volumes:
       - ./logs:/app/logs
     networks:
-      - localterra
+      - default
     ports:
       - 3060:3060
 
 volumes:
-  localterra:
+  terra:
   pgdata:
 
 networks:
-  localterra:
+  default:

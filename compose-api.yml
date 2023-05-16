@@ -17,9 +17,46 @@ x-api-env: &api-env
   - FCD_URL=http://fcd-api:3060
   - CIRCULATING_SUPPLY_COLLECT_WINDOW_BLOCKS=10
 
+services:
+  terrad:
+    extends:
+      file: compose-rpc.yml
+      service: terrad
+
+  postgres:
+    extends:
+      file: compose-fcd.yml
+      service: postgres
+
+  fcd-collector:
+    extends:
+      file: compose-fcd.yml
+      service: fcd-collector
+
+  fcd-api:
+    extends:
+      file: compose-fcd.yml
+      service: fcd-api
+
+  api:
+    image: ghcr.io/terra-money/api:${TERRA_VERSION}
+    command: ['start:prod']
+    environment: *api-env
+    networks:
+      - default
+    ports:
+      - '3000:3000'
+
+  api_collector:
+    image: ghcr.io/terra-money/api:${TERRA_VERSION}
+    command: ['collector:prod']
+    environment: *api-env
+    networks:
+      - default
+
 volumes:
-  localterra:
+  terra:
   pgdata:
 
 networks:
-  localterra:
+  default:
