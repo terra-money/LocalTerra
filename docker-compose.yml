@@ -19,9 +19,19 @@ services:
       file: compose-fcd.yml
       service: fcd-api
 
+  api-collector:
+    extends:
+      file: compose-api.yml
+      service: fcd-collector
+
+  api:
+    extends:
+      file: compose-api.yml
+      service: fcd-api
+
 volumes:
-  localterra:
+  terra:
   pgdata:
 
 networks:
-  localterra:
+  default:

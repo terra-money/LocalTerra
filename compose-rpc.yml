@@ -8,13 +8,12 @@ services:
       args:
         TERRA_VERSION: ${TERRA_VERSION}
     image: ghcr.io/terra-money/localterra:${TERRA_VERSION}
-    container_name: localterra-terrad
     hostname: terrad
     pull_policy: always
     volumes:
-      - localterra:/app
+      - terra:/app
     networks:
-      - localterra
+      - default
     ports:
       - "1317:1317"
       - "9090:9090"
@@ -22,7 +21,7 @@ services:
       - "26657:26657"
 
 volumes:
-  localterra:
+  terra:
 
 networks:
-  localterra:
+  default:
