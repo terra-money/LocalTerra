@@ -19,9 +19,148 @@ services:
       file: compose-fcd.yml
       service: fcd-api
 
+  zk1:
+    extends:
+      file: compose-pulsar.yml
+      service: zk1
+
+  zk2:
+    extends:
+      file: compose-pulsar.yml
+      service: zk2
+
+  zk3:
+    extends:
+      file: compose-pulsar.yml
+      service: zk3
+
+  pulsar-init:
+    extends:
+      file: compose-pulsar.yml
+      service: pulsar-init
+
+  bk1:
+    extends:
+      file: compose-pulsar.yml
+      service: bk1
+
+  bk2:
+    extends:
+      file: compose-pulsar.yml
+      service: bk2
+
+  bk3:
+    extends:
+      file: compose-pulsar.yml
+      service: bk3
+
+  broker1:
+    extends:
+      file: compose-pulsar.yml
+      service: broker1
+
+  broker2:
+    extends:
+      file: compose-pulsar.yml
+      service: broker2
+
+  broker3:
+    extends:
+      file: compose-pulsar.yml
+      service: broker3
+
+  sql1:
+    extends:
+      file: compose-pulsar.yml
+      service: sql1
+
+  sql2:
+    extends:
+      file: compose-pulsar.yml
+      service: sql2
+
+  sql3:
+    extends:
+      file: compose-pulsar.yml
+      service: sql3
+
+  proxy1:
+    extends:
+      file: compose-pulsar.yml
+      service: proxy1
+
+  fnc1:
+    extends:
+      file: compose-pulsar.yml
+      service: fnc1
+
+  websocket1:
+    extends:
+      file: compose-pulsar.yml
+      service: websocket1
+
+  es01:
+    extends:
+      file: compose-elastic.yml
+      service: es01
+
+  es02:
+    extends:
+      file: compose-elastic.yml
+      service: es02
+
+  es03:
+    extends:
+      file: compose-elastic.yml
+      service: es03
+
+  kibana:
+    extends:
+      file: compose-elastic.yml
+      service: kibana
+
+  setup:
+    extends:
+      file: compose-elastic.yml
+      service: setup
+
 volumes:
   localterra:
   pgdata:
+  pulsardatazk1:
+  pulsarconfzk1:
+  pulsardatazk2:
+  pulsarconfzk2:
+  pulsardatazk3:
+  pulsarconfzk3:
+  pulsardatabk1:
+  pulsarconfbk1:
+  pulsardatabk2:
+  pulsarconfbk2:
+  pulsardatabk3:
+  pulsarconfbk3:
+  pulsardatabroker1:
+  pulsarconfbroker1:
+  pulsardatabroker2:
+  pulsarconfbroker2:
+  pulsardatabroker3:
+  pulsarconfbroker3:
+  pulsardatasql1:
+  pulsarconfsql1:
+  pulsardatasql2:
+  pulsarconfsql2:
+  pulsardatasql3:
+  pulsarconfsql3:
 
+  certs:
+    driver: local
+  esdata01:
+    driver: local
+  esdata02:
+    driver: local
+  esdata03:
+    driver: local
+  kibanadata:
+    driver: local
 networks:
   localterra:
