@@ -46,7 +46,7 @@ services:
       timeout: 10s
       retries: 120
     networks:
-    localterra:
+      localterra:
 
   es02:
     depends_on:
@@ -89,7 +89,7 @@ services:
       timeout: 10s
       retries: 120
     networks:
-    localterra:
+      localterra:
 
   es03:
     depends_on:
