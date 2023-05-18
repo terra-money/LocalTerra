@@ -1,0 +1,22 @@
+version: '3.8'
+
+x-watcher-env: &watcher-env
+  - RPCWATCHER_PULSARURL=pulsar://proxy1:6650
+  - RPCWATCHER_RPCURL=http://terrad:26657
+  - RPCWATCHER_APIURL=http://proxy1:8000
+  - RPCWATCHER_PRESTOURI=http://root@sql1:8081
+  - RPCWATCHER_CHAINID=localterra
+  - RPCWATCHER_DEBUG=true
+  - RPCWATCHER_JSONLOGS=true
+services:
+  watcher:
+    image: ghcr.io/tuky191/watcher:sha-d2b8957
+    container_name: localterra-watcher
+    hostname: watcher
+    restart: unless-stopped
+    environment: *watcher-env
+    networks:
+      - localterra
+
+networks:
+  localterra:

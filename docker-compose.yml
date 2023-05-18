@@ -19,6 +19,11 @@ services:
       file: compose-fcd.yml
       service: fcd-api
 
+  watcher:
+    extends:
+      file: compose-watcher.yml
+      service: watcher
+
   zk1:
     extends:
       file: compose-pulsar.yml
