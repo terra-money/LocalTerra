@@ -9,25 +9,15 @@ services:
       file: compose-fcd.yml
       service: postgres
 
-  fcd-collector:
+  fcd_collector:
     extends:
       file: compose-fcd.yml
-      service: fcd-collector
+      service: fcd_collector
 
-  fcd-api:
+  fcd_api:
     extends:
       file: compose-fcd.yml
-      service: fcd-api
-
-  api-collector:
-    extends:
-      file: compose-api.yml
-      service: fcd-collector
-
-  api:
-    extends:
-      file: compose-api.yml
-      service: fcd-api
+      service: fcd_api
 
 volumes:
   terra:
