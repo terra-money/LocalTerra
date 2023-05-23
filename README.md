@@ -52,9 +52,9 @@ Your environment now contains:
 
 - [terrad](http://github.com/terra-money/core) RPC node running on `tcp://localhost:26657`
 - LCD running on http://localhost:1317
-- [FCD](http://www.github.com/terra-money/fcd) running on http://localhost:3060
-- An oracle feeder feeding live prices from mainnet, trailing by one vote period
 
+Note: to run localterra with FCD use the docker-compose file from
+- [FCD](http://www.github.com/terra-money/fcd)
 
 
 Stop LocalTerra:
