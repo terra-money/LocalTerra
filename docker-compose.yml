@@ -15,10 +15,16 @@ services:
     networks:
       - default
     ports:
-      - "1317:1317"
       - "9090:9090"
       - "9091:9091"
       - "26657:26657"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "1317:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
 
 volumes:
   terra:
