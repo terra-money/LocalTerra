@@ -26,6 +26,8 @@ RUN mkdir -p /app/data && \
 
 ENTRYPOINT [ "entrypoint.sh" ]
 
+EXPOSE 1317 8080 9090 9091 26656 26657
+
 CMD terrad start \
     --api.enable true \
     --api.enabled-unsafe-cors true \
