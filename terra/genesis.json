@@ -22,19 +22,6 @@
   },
   "app_hash": "",
   "app_state": {
-    "alliance": {
-      "params": {
-        "reward_delay_time": "604800s",
-        "take_rate_claim_interval": "300s",
-        "last_take_rate_claim_time": "0001-01-01T00:00:00Z"
-      },
-      "assets": [],
-      "validator_infos": [],
-      "reward_weight_change_snaphots": [],
-      "delegations": [],
-      "redelegations": [],
-      "undelegations": []
-    },
     "auth": {
       "params": {
         "max_memo_characters": "256",
@@ -275,13 +262,6 @@
     "feegrant": {
       "allowances": []
     },
-    "feeibc": {
-      "identified_fees": [],
-      "fee_enabled_channels": [],
-      "registered_payees": [],
-      "registered_counterparty_payees": [],
-      "forward_relayers": []
-    },
     "genutil": {
       "gen_txs": [
         {
@@ -387,10 +367,7 @@
       "connection_genesis": {
         "connections": [],
         "client_connection_paths": [],
-        "next_connection_sequence": "0",
-        "params": {
-          "max_expected_time_per_block": "30000000000"
-        }
+        "next_connection_sequence": "0"
       },
       "channel_genesis": {
         "channels": [],
@@ -403,54 +380,6 @@
         "next_channel_sequence": "0"
       }
     },
-    "ibchooks": {},
-    "interchainaccounts": {
-      "controller_genesis_state": {
-        "active_channels": [],
-        "interchain_accounts": [],
-        "ports": [],
-        "params": {
-          "controller_enabled": true
-        }
-      },
-      "host_genesis_state": {
-        "active_channels": [],
-        "interchain_accounts": [],
-        "port": "icahost",
-        "params": {
-          "host_enabled": true,
-          "allow_messages": [
-            "/cosmos.authz.v1beta1.MsgExec",
-            "/cosmos.authz.v1beta1.MsgGrant",
-            "/cosmos.authz.v1beta1.MsgRevoke",
-            "/cosmos.bank.v1beta1.MsgSend",
-            "/cosmos.bank.v1beta1.MsgMultiSend",
-            "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress",
-            "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
-            "/cosmos.distribution.v1beta1.MsgFundCommunityPool",
-            "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
-            "/cosmos.feegrant.v1beta1.MsgGrantAllowance",
-            "/cosmos.feegrant.v1beta1.MsgRevokeAllowance",
-            "/cosmos.gov.v1beta1.MsgVoteWeighted",
-            "/cosmos.gov.v1beta1.MsgSubmitProposal",
-            "/cosmos.gov.v1beta1.MsgDeposit",
-            "/cosmos.gov.v1beta1.MsgVote",
-            "/cosmos.staking.v1beta1.MsgEditValidator",
-            "/cosmos.staking.v1beta1.MsgDelegate",
-            "/cosmos.staking.v1beta1.MsgUndelegate",
-            "/cosmos.staking.v1beta1.MsgBeginRedelegate",
-            "/cosmos.staking.v1beta1.MsgCreateValidator",
-            "/cosmos.vesting.v1beta1.MsgCreateVestingAccount",
-            "/ibc.applications.transfer.v1.MsgTransfer",
-            "/cosmwasm.wasm.v1.MsgStoreCode",
-            "/cosmwasm.wasm.v1.MsgInstantiateContract",
-            "/cosmwasm.wasm.v1.MsgExecuteContract",
-            "/cosmwasm.wasm.v1.MsgMigrateContract"
-          ]
-        }
-      }
-    },
-    "intertx": null,
     "mint": {
       "minter": {
         "inflation": "0.130000000000000000",
@@ -483,8 +412,7 @@
         "max_validators": 100,
         "max_entries": 7,
         "historical_entries": 10000,
-        "bond_denom": "uluna",
-        "min_commission_rate": "0.000000000000000000"
+        "bond_denom": "uluna"
       },
       "last_total_power": "0",
       "last_validator_powers": [],
@@ -493,17 +421,6 @@
       "unbonding_delegations": [],
       "redelegations": [],
       "exported": false
-    },
-    "tokenfactory": {
-      "params": {
-        "denom_creation_fee": [
-          {
-            "denom": "uluna",
-            "amount": "10000000"
-          }
-        ]
-      },
-      "factory_denoms": []
     },
     "transfer": {
       "port_id": "transfer",
@@ -519,8 +436,7 @@
       "params": {
         "code_upload_access": {
           "permission": "Everybody",
-          "address": "",
-          "addresses": []
+          "address": ""
         },
         "instantiate_default_permission": "Everybody"
       },
