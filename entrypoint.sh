@@ -3,6 +3,6 @@
 set -eux
 
 # Start the nginx process
-nginx -g "daemon off" &
+nginx -g "daemon off;" &
 
-exec $@
+exec "$@"
