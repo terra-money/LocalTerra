@@ -1,4 +1,4 @@
-ARG TERRA_VERSION=2.1.4
+ARG TERRA_VERSION=2.2.1
 
 FROM ghcr.io/terra-money/core:${TERRA_VERSION}
 
@@ -15,13 +15,21 @@ RUN apk add --no-cache nginx && \
     ln -sf /dev/stderr /var/lib/nginx/logs/error.log
 
 # Setup for localterra
+RUN set -eux &&\
+    mkdir -p /app/conifg && \
+    mkdir -p /app/data && \
+    chown -R terra:terra /app && \
+    ln -s /app /terra/.terrad && \
+    terrad init localterra --home /app --chain-id localterra && \
+    echo '{"height": "0","round": 0,"step": 0}' > /app/data/priv_validator_state.json && \
+    sed -e '/^\[api\]/,/\[rosetta\]/ s|^enable *=.*|enable = true|' \
+        -e '/^\[api\]/,/\[rosetta\]/ s|^swagger *=.*|swagger = true|' \ 
+        -e '/^\[api\]/,/\[rosetta\]/ s|^enabled-unsafe-cors *=.*|enabled-unsafe-cors = true|' \ 
+        -i /app/config/app.toml 
+
 COPY ./terra/genesis.json \
     ./terra/priv_validator_key.json \
     /app/config/
-
-RUN chown -R terra:terra /app && \
-    mkdir -p /app/data && \
-    echo '{"height": "0","round": 0,"step": 0}' > /app/data/priv_validator_state.json
 
 ENTRYPOINT [ "entrypoint.sh" ]
 
@@ -43,7 +51,4 @@ CMD terrad start \
     --minimum-gas-prices 0.015uluna \
     --moniker localterra \
     --p2p.upnp true \
-    --rpc.laddr tcp://0.0.0.0:26657 
-    # --api.enable true \
-    # --api.swagger true \
-    # --api.enabled-unsafe-cors true 
+    --rpc.laddr tcp://0.0.0.0:26657
