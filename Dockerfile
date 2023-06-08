@@ -1,4 +1,4 @@
-ARG TERRA_VERSION=2.0.1
+ARG TERRA_VERSION=2.1.4
 
 FROM ghcr.io/terra-money/core:${TERRA_VERSION}
 
@@ -25,14 +25,25 @@ RUN chown -R terra:terra /app && \
 
 ENTRYPOINT [ "entrypoint.sh" ]
 
-EXPOSE 1317 8080 9090 9091 26656 26657
+# rest server
+EXPOSE 1317
+# nginx
+EXPOSE 8080
+# grpc
+EXPOSE 9090
+# grpc-web
+EXPOSE 9091
+# tendermint p2p
+EXPOSE 26656
+# tendermint rpc
+EXPOSE 26657
 
 CMD terrad start \
     --home /app \
     --minimum-gas-prices 0.015uluna \
     --moniker localterra \
     --p2p.upnp true \
-    --rpc.laddr tcp://0.0.0.0:26657
-    #--api.enable true \
-    #--api.enabled-unsafe-cors true \
-    #--api.swagger true \
+    --rpc.laddr tcp://0.0.0.0:26657 
+    # --api.enable true \
+    # --api.swagger true \
+    # --api.enabled-unsafe-cors true 
