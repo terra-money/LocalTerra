@@ -2,3 +2,4 @@
 
 docker-compose rm -f -s -v
 docker volume rm localterra_terra
+docker-compose build --no-cache
