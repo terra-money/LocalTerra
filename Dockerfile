@@ -1,4 +1,4 @@
-ARG TERRA_VERSION=2.2.1
+ARG TERRA_VERSION=2.3.2
 
 FROM ghcr.io/terra-money/core:${TERRA_VERSION}
 
@@ -19,7 +19,6 @@ RUN set -eux &&\
     mkdir -p /app/conifg && \
     mkdir -p /app/data && \
     chown -R terra:terra /app && \
-    ln -s /app /terra/.terrad && \
     terrad init localterra --home /app --chain-id localterra && \
     echo '{"height": "0","round": 0,"step": 0}' > /app/data/priv_validator_state.json && \
     sed -e '/^\[api\]/,/\[rosetta\]/ s|^enable *=.*|enable = true|' \
@@ -51,4 +50,7 @@ CMD terrad start \
     --minimum-gas-prices 0.015uluna \
     --moniker localterra \
     --p2p.upnp true \
-    --rpc.laddr tcp://0.0.0.0:26657
+    --rpc.laddr tcp://0.0.0.0:26657 \
+    --api.enable true \
+    --api.swagger true \
+    --api.enabled-unsafe-cors true 
