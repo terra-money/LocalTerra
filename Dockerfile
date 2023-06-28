@@ -16,7 +16,7 @@ RUN apk add --no-cache nginx && \
 
 # Setup for localterra
 RUN set -eux &&\
-    mkdir -p /app/conifg && \
+    mkdir -p /app/config && \
     mkdir -p /app/data && \
     chown -R terra:terra /app && \
     terrad init localterra --home /app --chain-id localterra && \
