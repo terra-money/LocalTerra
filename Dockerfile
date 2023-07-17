@@ -1,4 +1,4 @@
-ARG TERRA_VERSION=2.3.4
+ARG TERRA_VERSION=2.4.1
 
 FROM ghcr.io/terra-money/core:${TERRA_VERSION}
 
@@ -16,7 +16,7 @@ RUN apk add --no-cache nginx && \
 
 # Setup for localterra
 RUN set -eux &&\
-    mkdir -p /app/conifg && \
+    mkdir -p /app/config && \
     mkdir -p /app/data && \
     chown -R terra:terra /app && \
     terrad init localterra --home /app --chain-id localterra && \
