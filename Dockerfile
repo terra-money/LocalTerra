@@ -1,4 +1,4 @@
-ARG TERRA_VERSION=2.6.0
+ARG TERRA_VERSION=2.6.1
 
 FROM ghcr.io/terra-money/core:${TERRA_VERSION}
 
