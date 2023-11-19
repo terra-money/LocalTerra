@@ -26,9 +26,9 @@ RUN set -eux &&\
         -e '/^\[api\]/,/\[rosetta\]/ s|^enabled-unsafe-cors *=.*|enabled-unsafe-cors = true|' \ 
         -i /app/config/app.toml 
 
-COPY ./terra/genesis.json \
-    ./terra/priv_validator_key.json \
-    /app/config/
+COPY ./terra/priv_validator_key.json \
+     ./terra/genesis.json \
+     /app/config/
 
 ENTRYPOINT [ "entrypoint.sh" ]
 
