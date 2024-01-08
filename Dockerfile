@@ -1,4 +1,4 @@
-ARG TERRA_VERSION=2.6.1
+ARG TERRA_VERSION
 
 FROM ghcr.io/terra-money/core:${TERRA_VERSION}
 
@@ -19,12 +19,10 @@ RUN set -eux &&\
     mkdir -p /app/config && \
     mkdir -p /app/data && \
     chown -R terra:terra /app && \
-    terrad init localterra --home /app --chain-id localterra && \
-    echo '{"height": "0","round": 0,"step": 0}' > /app/data/priv_validator_state.json && \
-    sed -e '/^\[api\]/,/\[rosetta\]/ s|^enable *=.*|enable = true|' \
-        -e '/^\[api\]/,/\[rosetta\]/ s|^swagger *=.*|swagger = true|' \ 
-        -e '/^\[api\]/,/\[rosetta\]/ s|^enabled-unsafe-cors *=.*|enabled-unsafe-cors = true|' \ 
-        -i /app/config/app.toml 
+    terrad init localterra \
+        --home /app \
+        --chain-id localterra && \
+    echo '{"height": "0","round": 0,"step": 0}' > /app/data/priv_validator_state.json
 
 COPY ./terra/priv_validator_key.json \
      ./terra/genesis.json \
@@ -53,4 +51,9 @@ CMD terrad start \
     --rpc.laddr tcp://0.0.0.0:26657 \
     --api.enable true \
     --api.swagger true \
-    --api.enabled-unsafe-cors true 
+    --api.address tcp://0.0.0.0:1317 \
+    --api.enabled-unsafe-cors true \
+    --grpc.enable true \
+    --grpc.address 0.0.0.0:9090 \
+    --grpc-web.enable \
+    --grpc-web.address 0.0.0.0:9091 
